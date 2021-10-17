@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-05-26 Wed 09:42 -->
+<!-- 2021-10-17 Sun 15:02 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Error handling</title>
@@ -311,17 +311,17 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org33b2807">1. Decoding errors</a></li>
-<li><a href="#org0502409">2. Data structure in context</a></li>
-<li><a href="#org0e83bee">3. Updating errors in the context</a></li>
-<li><a href="#orgdd22932">4. Get the error</a></li>
-<li><a href="#orgc5e25e5">5. Failing</a></li>
+<li><a href="#org15036fe">1. Decoding errors</a></li>
+<li><a href="#orge863fc2">2. Data structure in context</a></li>
+<li><a href="#org6eb2637">3. Updating errors in the context</a></li>
+<li><a href="#org9baaf45">4. Get the error</a></li>
+<li><a href="#org6eb023c">5. Failing</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org33b2807" class="outline-2">
-<h2 id="org33b2807"><span class="section-number-2">1</span> Decoding errors</h2>
+<div id="outline-container-org15036fe" class="outline-2">
+<h2 id="org15036fe"><span class="section-number-2">1</span> Decoding errors</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 To decode the error messages, <code>qmckl_string_of_error</code> converts an
@@ -421,6 +421,9 @@ The text strings are extracted from the previous table.
   <span style="color: #a020f0;">case</span> QMCKL_NOT_PROVIDED:
               <span style="color: #a020f0;">return</span> <span style="color: #8b2252;">"Not provided"</span>;
             <span style="color: #a020f0;">break</span>;
+  <span style="color: #a020f0;">case</span> QMCKL_OUT_OF_BOUNDS:
+              <span style="color: #a020f0;">return</span> <span style="color: #8b2252;">"Index out of bounds"</span>;
+            <span style="color: #a020f0;">break</span>;
   <span style="color: #a020f0;">case</span> QMCKL_INVALID_EXIT_CODE:
               <span style="color: #a020f0;">return</span> <span style="color: #8b2252;">"Invalid exit code"</span>;
             <span style="color: #a020f0;">break</span>;
@@ -448,8 +451,8 @@ The text strings are extracted from the previous table.
 </div>
 </div>
 
-<div id="outline-container-org0502409" class="outline-2">
-<h2 id="org0502409"><span class="section-number-2">2</span> Data structure in context</h2>
+<div id="outline-container-orge863fc2" class="outline-2">
+<h2 id="orge863fc2"><span class="section-number-2">2</span> Data structure in context</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The strings are declared with a maximum fixed size to avoid
@@ -472,8 +475,8 @@ dynamic memory allocation.
 </div>
 </div>
 
-<div id="outline-container-org0e83bee" class="outline-2">
-<h2 id="org0e83bee"><span class="section-number-2">3</span> Updating errors in the context</h2>
+<div id="outline-container-org6eb2637" class="outline-2">
+<h2 id="org6eb2637"><span class="section-number-2">3</span> Updating errors in the context</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The error is updated in the context using <code>qmckl_set_error</code>.
@@ -519,8 +522,8 @@ explaining the error. The exit code can't be <code>QMCKL_SUCCESS</code>.
 </div>
 </div>
 
-<div id="outline-container-orgdd22932" class="outline-2">
-<h2 id="orgdd22932"><span class="section-number-2">4</span> Get the error</h2>
+<div id="outline-container-org9baaf45" class="outline-2">
+<h2 id="org9baaf45"><span class="section-number-2">4</span> Get the error</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Upon error, the error type and message can be obtained from the
@@ -548,8 +551,19 @@ function name and message is mandatory.
     <span style="color: #228b22;">qmckl_context_struct</span>* <span style="color: #a020f0;">const</span> <span style="color: #a0522d;">ctx</span> = (<span style="color: #228b22;">qmckl_context_struct</span>* <span style="color: #a020f0;">const</span>) context;
     assert (ctx != <span style="color: #008b8b;">NULL</span>); /* <span style="color: #b22222;">Impossible because the context is valid. </span>*/
 
+/* <span style="color: #b22222;">Turn off annoying GCC warning </span>*/
+<span style="color: #483d8b;">#ifdef</span> __GNUC__
+<span style="color: #483d8b;">#pragma</span> GCC diagnostic push
+<span style="color: #483d8b;">#pragma</span> GCC diagnostic ignored <span style="color: #8b2252;">"-Wstringop-truncation"</span>
+<span style="color: #483d8b;">#endif</span>
+
     strncpy(function_name, ctx-&gt;error.function, QMCKL_MAX_FUN_LEN-1);
     strncpy(message      , ctx-&gt;error.message , QMCKL_MAX_MSG_LEN-1);
+
+<span style="color: #483d8b;">#ifdef</span> __GNUC__
+<span style="color: #483d8b;">#pragma</span> GCC diagnostic pop
+<span style="color: #483d8b;">#endif</span>
+
     (*exit_code) = ctx-&gt;error.exit_code;
   }
   qmckl_unlock(context);
@@ -561,8 +575,8 @@ function name and message is mandatory.
 </div>
 </div>
 
-<div id="outline-container-orgc5e25e5" class="outline-2">
-<h2 id="orgc5e25e5"><span class="section-number-2">5</span> Failing</h2>
+<div id="outline-container-org6eb023c" class="outline-2">
+<h2 id="org6eb023c"><span class="section-number-2">5</span> Failing</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 To make a function fail, the <code>qmckl_failwith</code> function should be
@@ -625,7 +639,7 @@ For example, this function can be used as
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: TREX CoE</p>
-<p class="date">Created: 2021-05-26 Wed 09:42</p>
+<p class="date">Created: 2021-10-17 Sun 15:02</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
