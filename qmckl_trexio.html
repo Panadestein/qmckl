@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-17 Sun 15:02 -->
+<!-- 2025-11-28 Fri 18:52 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TREXIO I/O library</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="TREX CoE" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -40,22 +41,22 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
-    padding-top: 1.2em;
+    overflow: auto;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -161,6 +162,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -177,70 +191,17 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
 <link rel="stylesheet" title="Standard" href="qmckl.css" type="text/css" />
 
-<script type="text/javascript" src="org-info.js">
-/**
- *
- * @source: org-info.js
- *
- * @licstart  The following is the entire license notice for the
- *  JavaScript code in org-info.js.
- *
- * Copyright (C) 2012-2019 Free Software Foundation, Inc.
- *
- *
- * The JavaScript code in this tag is free software: you can
- * redistribute it and/or modify it under the terms of the GNU
- * General Public License (GNU GPL) as published by the Free Software
- * Foundation, either version 3 of the License, or (at your option)
- * any later version.  The code is distributed WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
- *
- * As additional permission under GNU GPL version 3 section 7, you
- * may distribute non-source (e.g., minimized or compacted) forms of
- * that code without the copy of the GNU GPL normally required by
- * section 4, provided you include this license notice and a URL
- * through which recipients can access the Corresponding Source.
- *
- * @licend  The above is the entire license notice
- * for the JavaScript code in org-info.js.
- *
- */
+<script src="org-info.js">
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+// @license-end
 </script>
 
-<script type="text/javascript">
-
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-
-<!--/*--><![CDATA[/*><!--*/
+<script>
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 org_html_manager.set("TOC_DEPTH", "4");
 org_html_manager.set("LINK_HOME", "index.html");
 org_html_manager.set("LINK_UP", "");
@@ -251,53 +212,7 @@ org_html_manager.set("FIXED_TOC", "0");
 org_html_manager.set("TOC", "1");
 org_html_manager.set("VIEW", "info");
 org_html_manager.setup();  // activate after the parameters are set
-/*]]>*///-->
-</script>
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+// @license-end
 </script>
 </head>
 <body>
@@ -305,58 +220,59 @@ for the JavaScript code in this tag.
  <a accesskey="h" href=""> UP </a>
  |
  <a accesskey="H" href="index.html"> HOME </a>
-</div><div id="content">
+</div><div id="content" class="content">
 <h1 class="title">TREXIO I/O library</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org8cffeb5">1. Local functions</a>
+<li><a href="#org8d493a5">1. Local functions</a>
 <ul>
-<li><a href="#orgbdd34b3">1.1. Open file</a></li>
-<li><a href="#org49c98ff">1.2. Electron</a></li>
-<li><a href="#orgfa4466f">1.3. Nucleus</a>
+<li><a href="#orgbecbdc7">1.1. Open file</a></li>
+<li><a href="#org2767793">1.2. Electron</a></li>
+<li><a href="#org9031674">1.3. Nucleus</a>
 <ul>
-<li><a href="#org0f815b2">1.3.1. Number of nuclei</a></li>
-<li><a href="#orge5aa26e">1.3.2. Nuclear charges</a></li>
-<li><a href="#org2cbb70c">1.3.3. Nuclear coordinates</a></li>
+<li><a href="#orgd3e5571">1.3.1. Number of nuclei</a></li>
+<li><a href="#orgdb91e82">1.3.2. Nuclear charges</a></li>
+<li><a href="#org6fdd398">1.3.3. Nuclear coordinates</a></li>
 </ul>
 </li>
-<li><a href="#org670f2c7">1.4. Basis set and AOs</a>
+<li><a href="#orge1e0218">1.4. Basis set and AOs</a>
 <ul>
-<li><a href="#org07d2506">1.4.1. Basis set type</a></li>
-<li><a href="#orgc18cf4a">1.4.2. Number of shells</a></li>
-<li><a href="#org2faeef4">1.4.3. Number of primitives</a></li>
-<li><a href="#orge4db325">1.4.4. Number of atomic orbitals</a></li>
-<li><a href="#org55a2a8b">1.4.5. Nucleus<sub>index</sub> array</a></li>
-<li><a href="#orgb9e3e53">1.4.6. Number of shells per nucleus</a></li>
-<li><a href="#orge75d9cb">1.4.7. Angular momentum</a></li>
-<li><a href="#org130a50a">1.4.8. Number of primitives per shell</a></li>
-<li><a href="#org694848f">1.4.9. Indices of the primitives</a></li>
-<li><a href="#org2de8bf8">1.4.10. Normalization of the shells</a></li>
-<li><a href="#org02cba19">1.4.11. Exponents</a></li>
-<li><a href="#org0f4c859">1.4.12. Coefficients</a></li>
-<li><a href="#orgfce8935">1.4.13. Normalization of the primitivies</a></li>
+<li><a href="#org11c9f81">1.4.1. Basis set type</a></li>
+<li><a href="#org721b8b4">1.4.2. Number of shells</a></li>
+<li><a href="#org8104d89">1.4.3. Number of primitives</a></li>
+<li><a href="#org94d0b81">1.4.4. Number of atomic orbitals</a></li>
+<li><a href="#orgd3b27ca">1.4.5. Nucleus<sub>index</sub> array</a></li>
+<li><a href="#org2b4a1ad">1.4.6. Number of shells per nucleus</a></li>
+<li><a href="#orgfeac9e4">1.4.7. Angular momentum</a></li>
+<li><a href="#orgc7bcd08">1.4.8. Number of primitives per shell</a></li>
+<li><a href="#org330cef1">1.4.9. Indices of the primitives</a></li>
+<li><a href="#org8b9bd77">1.4.10. Normalization of the shells</a></li>
+<li><a href="#orgc391a59">1.4.11. Exponents</a></li>
+<li><a href="#org4614cdf">1.4.12. Coefficients</a></li>
+<li><a href="#orgfb2fe9a">1.4.13. Normalization of the primitivies</a></li>
+<li><a href="#org6fb6864">1.4.14. AO Normalization</a></li>
 </ul>
 </li>
-<li><a href="#org86c3de0">1.5. Molecular orbitals</a>
+<li><a href="#orgda0fe52">1.5. Molecular orbitals</a>
 <ul>
-<li><a href="#orgd3c1d0f">1.5.1. Number of MOs</a></li>
-<li><a href="#org1cf037a">1.5.2. MO coefficients</a></li>
+<li><a href="#org0a5d5b9">1.5.1. Number of MOs</a></li>
+<li><a href="#orgb0123e6">1.5.2. MO coefficients</a></li>
 </ul>
 </li>
-<li><a href="#org5d45f9e">1.6. <span class="todo TODO">TODO</span> ECP</a></li>
+<li><a href="#org0c21369">1.6. <span class="todo TODO">TODO</span> ECP</a></li>
 </ul>
 </li>
-<li><a href="#org91ca46b">2. Read everything</a></li>
-<li><a href="#orga93599e">3. Test</a>
+<li><a href="#orge1f0eab">2. Read everything</a></li>
+<li><a href="#orgb7ca09f">3. Test</a>
 <ul>
 <li>
 <ul>
-<li><a href="#orgc2d1973">3.0.1. Electrons</a></li>
-<li><a href="#org4de427f">3.0.2. Nuclei</a></li>
-<li><a href="#orga0de73a">3.0.3. Atomic basis</a></li>
-<li><a href="#orgd7c5e31">3.0.4. MO Basis</a></li>
+<li><a href="#org48eb1ba">3.0.1. Electrons</a></li>
+<li><a href="#org5d78781">3.0.2. Nuclei</a></li>
+<li><a href="#orgefb062c">3.0.3. Atomic basis</a></li>
+<li><a href="#org8360ecd">3.0.4. MO Basis</a></li>
 </ul>
 </li>
 </ul>
@@ -365,8 +281,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org8cffeb5" class="outline-2">
-<h2 id="org8cffeb5"><span class="section-number-2">1</span> Local functions</h2>
+<div id="outline-container-org8d493a5" class="outline-2">
+<h2 id="org8d493a5"><span class="section-number-2">1.</span> Local functions</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Functions defined in this section are all local: they should not be
@@ -389,8 +305,8 @@ In the functions defined in this section, we use as local variables
 </ul>
 </div>
 
-<div id="outline-container-orgbdd34b3" class="outline-3">
-<h3 id="orgbdd34b3"><span class="section-number-3">1.1</span> Open file</h3>
+<div id="outline-container-orgbecbdc7" class="outline-3">
+<h3 id="orgbecbdc7"><span class="section-number-3">1.1.</span> Open file</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 We first define a helper function to open a file by first trying to
@@ -414,6 +330,12 @@ groups of data by passing the <code>trexio_t</code> handle.
   <span style="color: #a020f0;">if</span> (file != <span style="color: #008b8b;">NULL</span>) <span style="color: #a020f0;">return</span> file;
 
   *rc = QMCKL_FAILURE;
+  /* <span style="color: #b22222;">TODO</span>
+<span style="color: #b22222;">    return qmckl_failwith( context,</span>
+<span style="color: #b22222;">                           QMCKL_FAILURE,</span>
+<span style="color: #b22222;">                           "trexio_read_electron_up_num",</span>
+<span style="color: #b22222;">                           trexio_string_of_error(rcio));</span>
+                           */
   <span style="color: #a020f0;">return</span> <span style="color: #008b8b;">NULL</span>;
 }
 <span style="color: #483d8b;">#endif</span>
@@ -422,8 +344,8 @@ groups of data by passing the <code>trexio_t</code> handle.
 </div>
 </div>
 
-<div id="outline-container-org49c98ff" class="outline-3">
-<h3 id="org49c98ff"><span class="section-number-3">1.2</span> Electron</h3>
+<div id="outline-container-org2767793" class="outline-3">
+<h3 id="org2767793"><span class="section-number-3">1.2.</span> Electron</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 In this section we read all the data into the electron data structure.
@@ -474,8 +396,8 @@ We read the number of up-spin and down-spin electrons.
 </div>
 </div>
 
-<div id="outline-container-orgfa4466f" class="outline-3">
-<h3 id="orgfa4466f"><span class="section-number-3">1.3</span> Nucleus</h3>
+<div id="outline-container-org9031674" class="outline-3">
+<h3 id="org9031674"><span class="section-number-3">1.3.</span> Nucleus</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 In this section we read the number of nuclei, the molecular geometry and nuclear charges.
@@ -495,8 +417,8 @@ In this section we read the number of nuclei, the molecular geometry and nuclear
 </div>
 </div>
 
-<div id="outline-container-org0f815b2" class="outline-4">
-<h4 id="org0f815b2"><span class="section-number-4">1.3.1</span> Number of nuclei</h4>
+<div id="outline-container-orgd3e5571" class="outline-4">
+<h4 id="orgd3e5571"><span class="section-number-4">1.3.1.</span> Number of nuclei</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <div class="org-src-container">
 <pre class="src src-c"><span style="color: #228b22;">int64_t</span> <span style="color: #a0522d;">nucleus_num</span> = 0L;
@@ -519,8 +441,8 @@ rc = qmckl_set_nucleus_num(context, nucleus_num);
 </div>
 </div>
 
-<div id="outline-container-orge5aa26e" class="outline-4">
-<h4 id="orge5aa26e"><span class="section-number-4">1.3.2</span> Nuclear charges</h4>
+<div id="outline-container-orgdb91e82" class="outline-4">
+<h4 id="orgdb91e82"><span class="section-number-4">1.3.2.</span> Nuclear charges</h4>
 <div class="outline-text-4" id="text-1-3-2">
 <div class="org-src-container">
 <pre class="src src-c">{
@@ -538,7 +460,7 @@ rc = qmckl_set_nucleus_num(context, nucleus_num);
 
   assert (nucl_charge != <span style="color: #008b8b;">NULL</span>);
 
-  rcio = trexio_read_nucleus_charge_64(file, nucl_charge);
+  rcio = trexio_read_safe_nucleus_charge_64(file, nucl_charge, nucleus_num);
   <span style="color: #a020f0;">if</span> (rcio != TREXIO_SUCCESS) {
     <span style="color: #a020f0;">return</span> qmckl_failwith( context,
                            QMCKL_FAILURE,
@@ -546,7 +468,7 @@ rc = qmckl_set_nucleus_num(context, nucleus_num);
                            trexio_string_of_error(rcio));
   }
 
-  rc = qmckl_set_nucleus_charge(context, nucl_charge);
+  rc = qmckl_set_nucleus_charge(context, nucl_charge, nucleus_num);
 
   qmckl_free(context, nucl_charge);
   nucl_charge = <span style="color: #008b8b;">NULL</span>;
@@ -560,8 +482,8 @@ rc = qmckl_set_nucleus_num(context, nucleus_num);
 </div>
 </div>
 
-<div id="outline-container-org2cbb70c" class="outline-4">
-<h4 id="org2cbb70c"><span class="section-number-4">1.3.3</span> Nuclear coordinates</h4>
+<div id="outline-container-org6fdd398" class="outline-4">
+<h4 id="org6fdd398"><span class="section-number-4">1.3.3.</span> Nuclear coordinates</h4>
 <div class="outline-text-4" id="text-1-3-3">
 <p>
 Now, we read the molecular geometry. It is stored in normal format
@@ -584,7 +506,7 @@ in the TREXIO file (<code>'N'</code>), so it will be automatically transposed in
 
   assert (nucl_coord != <span style="color: #008b8b;">NULL</span>);
 
-  rcio = trexio_read_nucleus_coord_64(file, nucl_coord);
+  rcio = trexio_read_safe_nucleus_coord_64(file, nucl_coord, 3*nucleus_num);
   <span style="color: #a020f0;">if</span> (rcio != TREXIO_SUCCESS) {
     <span style="color: #a020f0;">return</span> qmckl_failwith( context,
                            QMCKL_FAILURE,
@@ -592,7 +514,7 @@ in the TREXIO file (<code>'N'</code>), so it will be automatically transposed in
                            trexio_string_of_error(rcio));
   }
 
-  rc = qmckl_set_nucleus_coord(context, <span style="color: #8b2252;">'N'</span>, nucl_coord);
+  rc = qmckl_set_nucleus_coord(context, <span style="color: #8b2252;">'N'</span>, nucl_coord, 3*nucleus_num);
 
   qmckl_free(context, nucl_coord);
   nucl_coord = <span style="color: #008b8b;">NULL</span>;
@@ -606,7 +528,7 @@ in the TREXIO file (<code>'N'</code>), so it will be automatically transposed in
 
 
 <div class="org-src-container">
-<pre class="src src-c">
+<pre class="src src-c">  <span style="color: #0000ff;">assert</span> ( <span style="color: #228b22;">qmckl_nucleus_provided</span>(<span style="color: #a0522d;">context</span>) );
   <span style="color: #a020f0;">return</span> QMCKL_SUCCESS;
 }
 <span style="color: #483d8b;">#endif</span>
@@ -616,8 +538,8 @@ in the TREXIO file (<code>'N'</code>), so it will be automatically transposed in
 </div>
 </div>
 
-<div id="outline-container-org670f2c7" class="outline-3">
-<h3 id="org670f2c7"><span class="section-number-3">1.4</span> Basis set and AOs</h3>
+<div id="outline-container-orge1e0218" class="outline-3">
+<h3 id="orge1e0218"><span class="section-number-3">1.4.</span> Basis set and AOs</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 In this section we read the atomic basis set and atomic orbitals.
@@ -643,8 +565,8 @@ In this section we read the atomic basis set and atomic orbitals.
 </div>
 </div>
 
-<div id="outline-container-org07d2506" class="outline-4">
-<h4 id="org07d2506"><span class="section-number-4">1.4.1</span> Basis set type</h4>
+<div id="outline-container-org11c9f81" class="outline-4">
+<h4 id="org11c9f81"><span class="section-number-4">1.4.1.</span> Basis set type</h4>
 <div class="outline-text-4" id="text-1-4-1">
 <div class="org-src-container">
 <pre class="src src-c"><span style="color: #483d8b;">#define</span> <span style="color: #a0522d;">MAX_STR_LEN</span> 1024
@@ -675,13 +597,13 @@ In this section we read the atomic basis set and atomic orbitals.
 </div>
 </div>
 
-<div id="outline-container-orgc18cf4a" class="outline-4">
-<h4 id="orgc18cf4a"><span class="section-number-4">1.4.2</span> Number of shells</h4>
+<div id="outline-container-org721b8b4" class="outline-4">
+<h4 id="org721b8b4"><span class="section-number-4">1.4.2.</span> Number of shells</h4>
 <div class="outline-text-4" id="text-1-4-2">
 <div class="org-src-container">
 <pre class="src src-c"><span style="color: #228b22;">int64_t</span> <span style="color: #a0522d;">shell_num</span> = 0L;
 
-rcio = trexio_read_basis_num_64(file, &amp;shell_num);
+rcio = trexio_read_basis_shell_num_64(file, &amp;shell_num);
 <span style="color: #a020f0;">if</span> (rcio != TREXIO_SUCCESS) {
   <span style="color: #a020f0;">return</span> qmckl_failwith( context,
                          QMCKL_FAILURE,
@@ -700,8 +622,8 @@ rc = qmckl_set_ao_basis_shell_num(context, shell_num);
 </div>
 </div>
 
-<div id="outline-container-org2faeef4" class="outline-4">
-<h4 id="org2faeef4"><span class="section-number-4">1.4.3</span> Number of primitives</h4>
+<div id="outline-container-org8104d89" class="outline-4">
+<h4 id="org8104d89"><span class="section-number-4">1.4.3.</span> Number of primitives</h4>
 <div class="outline-text-4" id="text-1-4-3">
 <div class="org-src-container">
 <pre class="src src-c"><span style="color: #228b22;">int64_t</span> <span style="color: #a0522d;">prim_num</span> = 0L;
@@ -725,11 +647,11 @@ rc = qmckl_set_ao_basis_prim_num(context, prim_num);
 </div>
 </div>
 
-<div id="outline-container-orge4db325" class="outline-4">
-<h4 id="orge4db325"><span class="section-number-4">1.4.4</span> Number of atomic orbitals</h4>
+<div id="outline-container-org94d0b81" class="outline-4">
+<h4 id="org94d0b81"><span class="section-number-4">1.4.4.</span> Number of atomic orbitals</h4>
 <div class="outline-text-4" id="text-1-4-4">
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #228b22;">int64_t</span> <span style="color: #a0522d;">ao_num</span> = 0LL;
+<pre class="src src-c"><span style="color: #228b22;">int64_t</span> <span style="color: #a0522d;">ao_num</span> = 0;
 
 rcio = trexio_read_ao_num_64(file, &amp;ao_num);
 <span style="color: #a020f0;">if</span> (rcio != TREXIO_SUCCESS) {
@@ -750,14 +672,15 @@ rc = qmckl_set_ao_basis_ao_num(context, ao_num);
 </div>
 </div>
 
-<div id="outline-container-org55a2a8b" class="outline-4">
-<h4 id="org55a2a8b"><span class="section-number-4">1.4.5</span> Nucleus<sub>index</sub> array</h4>
+<div id="outline-container-orgd3b27ca" class="outline-4">
+<h4 id="orgd3b27ca"><span class="section-number-4">1.4.5.</span> Nucleus<sub>index</sub> array</h4>
 <div class="outline-text-4" id="text-1-4-5">
 <div class="org-src-container">
 <pre class="src src-c">{
   <span style="color: #228b22;">qmckl_memory_info_struct</span> <span style="color: #a0522d;">mem_info</span> = qmckl_memory_info_struct_zero;
-  mem_info.size = nucleus_num * <span style="color: #a020f0;">sizeof</span>(int64_t);
 
+  /* <span style="color: #b22222;">Allocate array for data</span> */
+  mem_info.size = nucleus_num * <span style="color: #a020f0;">sizeof</span>(int64_t);
   <span style="color: #228b22;">int64_t</span>* <span style="color: #a0522d;">nucleus_index</span> = (<span style="color: #228b22;">int64_t</span>*) qmckl_malloc(context, mem_info);
 
   <span style="color: #a020f0;">if</span> (nucleus_index == <span style="color: #008b8b;">NULL</span>) {
@@ -769,15 +692,55 @@ rc = qmckl_set_ao_basis_ao_num(context, ao_num);
 
   assert (nucleus_index != <span style="color: #008b8b;">NULL</span>);
 
-  rcio = trexio_read_basis_nucleus_index_64(file, nucleus_index);
+  /* <span style="color: #b22222;">Allocate temporary array</span> */
+  mem_info.size = shell_num * <span style="color: #a020f0;">sizeof</span>(int64_t);
+  <span style="color: #228b22;">int64_t</span>* <span style="color: #a0522d;">tmp_array</span> = (<span style="color: #228b22;">int64_t</span>*) qmckl_malloc(context, mem_info);
+
+  <span style="color: #a020f0;">if</span> (tmp_array == <span style="color: #008b8b;">NULL</span>) {
+    qmckl_free(context, nucleus_index);
+    nucleus_index = <span style="color: #008b8b;">NULL</span>;
+    <span style="color: #a020f0;">return</span> qmckl_failwith( context,
+                           QMCKL_ALLOCATION_FAILED,
+                           <span style="color: #8b2252;">"qmckl_trexio_read_basis_nucleus_index_X"</span>,
+                           <span style="color: #008b8b;">NULL</span>);
+  }
+
+  assert (tmp_array != <span style="color: #008b8b;">NULL</span>);
+
+  /* <span style="color: #b22222;">Read in the temporary array</span> */
+  rcio = trexio_read_safe_basis_nucleus_index_64(file, tmp_array, shell_num);
   <span style="color: #a020f0;">if</span> (rcio != TREXIO_SUCCESS) {
+    qmckl_free(context, tmp_array);
+    tmp_array = <span style="color: #008b8b;">NULL</span>;
+    qmckl_free(context, nucleus_index);
+    nucleus_index = <span style="color: #008b8b;">NULL</span>;
     <span style="color: #a020f0;">return</span> qmckl_failwith( context,
                            QMCKL_FAILURE,
                            <span style="color: #8b2252;">"trexio_read_basis_nucleus_index"</span>,
                            trexio_string_of_error(rcio));
   }
 
-  rc = qmckl_set_ao_basis_nucleus_index(context, nucleus_index);
+  /* <span style="color: #b22222;">Reformat data</span> */
+  <span style="color: #a020f0;">for</span> (<span style="color: #228b22;">int</span> <span style="color: #a0522d;">i</span>=shell_num-1 ; i&gt;=0 ; --i) {
+    <span style="color: #a020f0;">const</span> <span style="color: #228b22;">int</span> <span style="color: #a0522d;">k</span> = tmp_array[i];
+    <span style="color: #a020f0;">if</span> (k &lt; 0 || k &gt;= nucleus_num) {
+      qmckl_free(context, tmp_array);
+      tmp_array = <span style="color: #008b8b;">NULL</span>;
+      qmckl_free(context, nucleus_index);
+      nucleus_index = <span style="color: #008b8b;">NULL</span>;
+      <span style="color: #a020f0;">return</span> qmckl_failwith( context,
+                              QMCKL_FAILURE,
+                              <span style="color: #8b2252;">"trexio_read_basis_nucleus_index"</span>,
+                              <span style="color: #8b2252;">"Irrelevant data in TREXIO file"</span>);
+    }
+    nucleus_index[k] = i;
+  }
+
+  qmckl_free(context, tmp_array);
+  tmp_array = <span style="color: #008b8b;">NULL</span>;
+
+  /* <span style="color: #b22222;">Store data</span> */
+  rc = qmckl_set_ao_basis_nucleus_index(context, nucleus_index, shell_num);
 
   qmckl_free(context, nucleus_index);
   nucleus_index = <span style="color: #008b8b;">NULL</span>;
@@ -790,14 +753,15 @@ rc = qmckl_set_ao_basis_ao_num(context, ao_num);
 </div>
 </div>
 
-<div id="outline-container-orgb9e3e53" class="outline-4">
-<h4 id="orgb9e3e53"><span class="section-number-4">1.4.6</span> Number of shells per nucleus</h4>
+<div id="outline-container-org2b4a1ad" class="outline-4">
+<h4 id="org2b4a1ad"><span class="section-number-4">1.4.6.</span> Number of shells per nucleus</h4>
 <div class="outline-text-4" id="text-1-4-6">
 <div class="org-src-container">
 <pre class="src src-c">{
   <span style="color: #228b22;">qmckl_memory_info_struct</span> <span style="color: #a0522d;">mem_info</span> = qmckl_memory_info_struct_zero;
-  mem_info.size = nucleus_num * <span style="color: #a020f0;">sizeof</span>(int64_t);
 
+  /* <span style="color: #b22222;">Allocate array for data</span> */
+  mem_info.size = nucleus_num * <span style="color: #a020f0;">sizeof</span>(int64_t);
   <span style="color: #228b22;">int64_t</span>* <span style="color: #a0522d;">nucleus_shell_num</span> = (<span style="color: #228b22;">int64_t</span>*) qmckl_malloc(context, mem_info);
 
   <span style="color: #a020f0;">if</span> (nucleus_shell_num == <span style="color: #008b8b;">NULL</span>) {
@@ -809,15 +773,60 @@ rc = qmckl_set_ao_basis_ao_num(context, ao_num);
 
   assert (nucleus_shell_num != <span style="color: #008b8b;">NULL</span>);
 
-  rcio = trexio_read_basis_nucleus_shell_num_64(file, nucleus_shell_num);
+  /* <span style="color: #b22222;">Allocate temporary array</span> */
+  mem_info.size = shell_num * <span style="color: #a020f0;">sizeof</span>(int64_t);
+  <span style="color: #228b22;">int64_t</span>* <span style="color: #a0522d;">tmp_array</span> = (<span style="color: #228b22;">int64_t</span>*) qmckl_malloc(context, mem_info);
+
+  <span style="color: #a020f0;">if</span> (tmp_array == <span style="color: #008b8b;">NULL</span>) {
+    qmckl_free(context, nucleus_shell_num);
+    nucleus_shell_num = <span style="color: #008b8b;">NULL</span>;
+    <span style="color: #a020f0;">return</span> qmckl_failwith( context,
+                           QMCKL_ALLOCATION_FAILED,
+                           <span style="color: #8b2252;">"qmckl_trexio_read_basis_nucleus_shell_num_X"</span>,
+                           <span style="color: #008b8b;">NULL</span>);
+  }
+
+  assert (tmp_array != <span style="color: #008b8b;">NULL</span>);
+
+
+  /* <span style="color: #b22222;">Read in the temporary array</span> */
+  rcio = trexio_read_safe_basis_nucleus_index_64(file, tmp_array, shell_num);
   <span style="color: #a020f0;">if</span> (rcio != TREXIO_SUCCESS) {
+    qmckl_free(context, tmp_array);
+    tmp_array = <span style="color: #008b8b;">NULL</span>;
+    qmckl_free(context, nucleus_shell_num);
+    nucleus_shell_num = <span style="color: #008b8b;">NULL</span>;
     <span style="color: #a020f0;">return</span> qmckl_failwith( context,
                            QMCKL_FAILURE,
                            <span style="color: #8b2252;">"trexio_read_basis_nucleus_shell_num"</span>,
                            trexio_string_of_error(rcio));
   }
 
-  rc = qmckl_set_ao_basis_nucleus_shell_num(context, nucleus_shell_num);
+  /* <span style="color: #b22222;">Reformat data</span> */
+  <span style="color: #a020f0;">for</span> (<span style="color: #228b22;">int</span> <span style="color: #a0522d;">i</span>=0 ; i&lt;nucleus_num ; ++i) {
+    nucleus_shell_num[i] = 0;
+  }
+
+  <span style="color: #a020f0;">for</span> (<span style="color: #228b22;">int</span> <span style="color: #a0522d;">i</span>=0 ; i&lt;shell_num ; ++i) {
+    <span style="color: #a020f0;">const</span> <span style="color: #228b22;">int</span> <span style="color: #a0522d;">k</span> = tmp_array[i];
+    <span style="color: #a020f0;">if</span> (k &lt; 0 || k &gt;= nucleus_num) {
+      qmckl_free(context, tmp_array);
+      tmp_array = <span style="color: #008b8b;">NULL</span>;
+      qmckl_free(context, nucleus_shell_num);
+      nucleus_shell_num = <span style="color: #008b8b;">NULL</span>;
+      <span style="color: #a020f0;">return</span> qmckl_failwith( context,
+                             QMCKL_FAILURE,
+                             <span style="color: #8b2252;">"trexio_read_basis_nucleus_shell_num"</span>,
+                             <span style="color: #8b2252;">"Irrelevant data in TREXIO file"</span>);
+    }
+    nucleus_shell_num[k] += 1;
+  }
+
+  qmckl_free(context, tmp_array);
+  tmp_array = <span style="color: #008b8b;">NULL</span>;
+
+  /* <span style="color: #b22222;">Store data</span> */
+  rc = qmckl_set_ao_basis_nucleus_shell_num(context, nucleus_shell_num, shell_num);
 
   qmckl_free(context, nucleus_shell_num);
   nucleus_shell_num = <span style="color: #008b8b;">NULL</span>;
@@ -830,12 +839,14 @@ rc = qmckl_set_ao_basis_ao_num(context, ao_num);
 </div>
 </div>
 
-<div id="outline-container-orge75d9cb" class="outline-4">
-<h4 id="orge75d9cb"><span class="section-number-4">1.4.7</span> Angular momentum</h4>
+<div id="outline-container-orgfeac9e4" class="outline-4">
+<h4 id="orgfeac9e4"><span class="section-number-4">1.4.7.</span> Angular momentum</h4>
 <div class="outline-text-4" id="text-1-4-7">
 <div class="org-src-container">
 <pre class="src src-c">{
   <span style="color: #228b22;">qmckl_memory_info_struct</span> <span style="color: #a0522d;">mem_info</span> = qmckl_memory_info_struct_zero;
+
+  /* <span style="color: #b22222;">Allocate array for data</span> */
   mem_info.size = shell_num * <span style="color: #a020f0;">sizeof</span>(int32_t);
 
   <span style="color: #228b22;">int32_t</span>* <span style="color: #a0522d;">shell_ang_mom</span> = (<span style="color: #228b22;">int32_t</span>*) qmckl_malloc(context, mem_info);
@@ -849,15 +860,19 @@ rc = qmckl_set_ao_basis_ao_num(context, ao_num);
 
   assert (shell_ang_mom != <span style="color: #008b8b;">NULL</span>);
 
-  rcio = trexio_read_basis_shell_ang_mom_32(file, shell_ang_mom);
+  /* <span style="color: #b22222;">Read data</span> */
+  rcio = trexio_read_safe_basis_shell_ang_mom_32(file, shell_ang_mom, shell_num);
   <span style="color: #a020f0;">if</span> (rcio != TREXIO_SUCCESS) {
+    qmckl_free(context, shell_ang_mom);
+    shell_ang_mom = <span style="color: #008b8b;">NULL</span>;
     <span style="color: #a020f0;">return</span> qmckl_failwith( context,
                            QMCKL_FAILURE,
                            <span style="color: #8b2252;">"trexio_read_basis_shell_ang_mom"</span>,
                            trexio_string_of_error(rcio));
   }
 
-  rc = qmckl_set_ao_basis_shell_ang_mom(context, shell_ang_mom);
+  /* <span style="color: #b22222;">Store data</span> */
+  rc = qmckl_set_ao_basis_shell_ang_mom(context, shell_ang_mom, shell_num);
 
   qmckl_free(context, shell_ang_mom);
   shell_ang_mom = <span style="color: #008b8b;">NULL</span>;
@@ -870,12 +885,14 @@ rc = qmckl_set_ao_basis_ao_num(context, ao_num);
 </div>
 </div>
 
-<div id="outline-container-org130a50a" class="outline-4">
-<h4 id="org130a50a"><span class="section-number-4">1.4.8</span> Number of primitives per shell</h4>
+<div id="outline-container-orgc7bcd08" class="outline-4">
+<h4 id="orgc7bcd08"><span class="section-number-4">1.4.8.</span> Number of primitives per shell</h4>
 <div class="outline-text-4" id="text-1-4-8">
 <div class="org-src-container">
 <pre class="src src-c">{
   <span style="color: #228b22;">qmckl_memory_info_struct</span> <span style="color: #a0522d;">mem_info</span> = qmckl_memory_info_struct_zero;
+
+  /* <span style="color: #b22222;">Allocate array for data</span> */
   mem_info.size = shell_num * <span style="color: #a020f0;">sizeof</span>(int64_t);
 
   <span style="color: #228b22;">int64_t</span>* <span style="color: #a0522d;">shell_prim_num</span> = (<span style="color: #228b22;">int64_t</span>*) qmckl_malloc(context, mem_info);
@@ -883,21 +900,66 @@ rc = qmckl_set_ao_basis_ao_num(context, ao_num);
   <span style="color: #a020f0;">if</span> (shell_prim_num == <span style="color: #008b8b;">NULL</span>) {
     <span style="color: #a020f0;">return</span> qmckl_failwith( context,
                            QMCKL_ALLOCATION_FAILED,
-                           <span style="color: #8b2252;">"qmckl_trexio_read_basis_shell_prim_num_X"</span>,
+                           <span style="color: #8b2252;">"qmckl_trexio_read_basis_shell_index"</span>,
                            <span style="color: #008b8b;">NULL</span>);
   }
 
   assert (shell_prim_num != <span style="color: #008b8b;">NULL</span>);
 
-  rcio = trexio_read_basis_shell_prim_num_64(file, shell_prim_num);
+  /* <span style="color: #b22222;">Allocate temporary array</span> */
+  mem_info.size = prim_num * <span style="color: #a020f0;">sizeof</span>(int64_t);
+
+  <span style="color: #228b22;">int64_t</span>* <span style="color: #a0522d;">tmp_array</span> = (<span style="color: #228b22;">int64_t</span>*) qmckl_malloc(context, mem_info);
+
+  <span style="color: #a020f0;">if</span> (tmp_array == <span style="color: #008b8b;">NULL</span>) {
+    qmckl_free(context, shell_prim_num);
+    shell_prim_num = <span style="color: #008b8b;">NULL</span>;
+    <span style="color: #a020f0;">return</span> qmckl_failwith( context,
+                           QMCKL_ALLOCATION_FAILED,
+                           <span style="color: #8b2252;">"qmckl_trexio_read_basis_shell_index"</span>,
+                           <span style="color: #008b8b;">NULL</span>);
+  }
+
+  assert (tmp_array != <span style="color: #008b8b;">NULL</span>);
+
+  /* <span style="color: #b22222;">Read data</span> */
+  rcio = trexio_read_safe_basis_shell_index_64 (file, tmp_array, prim_num);
   <span style="color: #a020f0;">if</span> (rcio != TREXIO_SUCCESS) {
+    qmckl_free(context, shell_prim_num);
+    shell_prim_num = <span style="color: #008b8b;">NULL</span>;
+    qmckl_free(context, tmp_array);
+    tmp_array = <span style="color: #008b8b;">NULL</span>;
     <span style="color: #a020f0;">return</span> qmckl_failwith( context,
                            QMCKL_FAILURE,
-                           <span style="color: #8b2252;">"trexio_read_basis_shell_prim_num"</span>,
+                           <span style="color: #8b2252;">"qmckl_trexio_read_basis_shell_index"</span>,
                            trexio_string_of_error(rcio));
   }
 
-  rc = qmckl_set_ao_basis_shell_prim_num(context, shell_prim_num);
+  /* <span style="color: #b22222;">Reformat data</span> */
+  <span style="color: #a020f0;">for</span> (<span style="color: #228b22;">int</span> <span style="color: #a0522d;">i</span>=0 ; i&lt;shell_num ; ++i) {
+    shell_prim_num[i] = 0;
+  }
+
+  <span style="color: #a020f0;">for</span> (<span style="color: #228b22;">int</span> <span style="color: #a0522d;">i</span>=0 ; i&lt;prim_num ; ++i) {
+    <span style="color: #a020f0;">const</span> <span style="color: #228b22;">int</span> <span style="color: #a0522d;">k</span> = tmp_array[i];
+    <span style="color: #a020f0;">if</span> (k &lt; 0 || k &gt;= shell_num) {
+      qmckl_free(context, tmp_array);
+      qmckl_free(context, shell_prim_num);
+      <span style="color: #228b22;">char</span> <span style="color: #a0522d;">msg</span>[128];
+      sprintf(&amp;msg[0], <span style="color: #8b2252;">"Irrelevant data in TREXIO file: k = %d"</span>, k);
+      <span style="color: #a020f0;">return</span> qmckl_failwith( context,
+                              QMCKL_FAILURE,
+                              <span style="color: #8b2252;">"qmckl_trexio_read_basis_shell_index"</span>,
+                              &amp;msg[0]);
+    }
+    shell_prim_num[k] += 1;
+  }
+
+  qmckl_free(context, tmp_array);
+  tmp_array = <span style="color: #008b8b;">NULL</span>;
+
+  /* <span style="color: #b22222;">Store data</span> */
+  rc = qmckl_set_ao_basis_shell_prim_num(context, shell_prim_num, shell_num);
 
   qmckl_free(context, shell_prim_num);
   shell_prim_num = <span style="color: #008b8b;">NULL</span>;
@@ -910,12 +972,14 @@ rc = qmckl_set_ao_basis_ao_num(context, ao_num);
 </div>
 </div>
 
-<div id="outline-container-org694848f" class="outline-4">
-<h4 id="org694848f"><span class="section-number-4">1.4.9</span> Indices of the primitives</h4>
+<div id="outline-container-org330cef1" class="outline-4">
+<h4 id="org330cef1"><span class="section-number-4">1.4.9.</span> Indices of the primitives</h4>
 <div class="outline-text-4" id="text-1-4-9">
 <div class="org-src-container">
 <pre class="src src-c">{
   <span style="color: #228b22;">qmckl_memory_info_struct</span> <span style="color: #a0522d;">mem_info</span> = qmckl_memory_info_struct_zero;
+
+  /* <span style="color: #b22222;">Allocate array for data</span> */
   mem_info.size = shell_num * <span style="color: #a020f0;">sizeof</span>(int64_t);
 
   <span style="color: #228b22;">int64_t</span>* <span style="color: #a0522d;">shell_prim_index</span> = (<span style="color: #228b22;">int64_t</span>*) qmckl_malloc(context, mem_info);
@@ -929,15 +993,54 @@ rc = qmckl_set_ao_basis_ao_num(context, ao_num);
 
   assert (shell_prim_index != <span style="color: #008b8b;">NULL</span>);
 
-  rcio = trexio_read_basis_shell_prim_index_64(file, shell_prim_index);
+  /* <span style="color: #b22222;">Allocate temporary array</span> */
+  mem_info.size = prim_num * <span style="color: #a020f0;">sizeof</span>(int64_t);
+
+  <span style="color: #228b22;">int64_t</span>* <span style="color: #a0522d;">tmp_array</span> = (<span style="color: #228b22;">int64_t</span>*) qmckl_malloc(context, mem_info);
+
+  <span style="color: #a020f0;">if</span> (tmp_array == <span style="color: #008b8b;">NULL</span>) {
+    <span style="color: #a020f0;">return</span> qmckl_failwith( context,
+                           QMCKL_ALLOCATION_FAILED,
+                           <span style="color: #8b2252;">"qmckl_trexio_read_basis_shell_prim_index_X"</span>,
+                           <span style="color: #008b8b;">NULL</span>);
+  }
+
+  assert (tmp_array != <span style="color: #008b8b;">NULL</span>);
+
+  /* <span style="color: #b22222;">Read data</span> */
+  rcio = trexio_read_safe_basis_shell_index_64(file, tmp_array, prim_num);
   <span style="color: #a020f0;">if</span> (rcio != TREXIO_SUCCESS) {
+    qmckl_free(context, shell_prim_index);
+    shell_prim_index = <span style="color: #008b8b;">NULL</span>;
+    qmckl_free(context, tmp_array);
+    tmp_array = <span style="color: #008b8b;">NULL</span>;
     <span style="color: #a020f0;">return</span> qmckl_failwith( context,
                            QMCKL_FAILURE,
                            <span style="color: #8b2252;">"trexio_read_basis_shell_prim_index"</span>,
                            trexio_string_of_error(rcio));
   }
 
-  rc = qmckl_set_ao_basis_shell_prim_index(context, shell_prim_index);
+  /* <span style="color: #b22222;">Reformat data</span> */
+  <span style="color: #a020f0;">for</span> (<span style="color: #228b22;">int</span> <span style="color: #a0522d;">i</span>=prim_num-1 ; i&gt;=0 ; --i) {
+    <span style="color: #a020f0;">const</span> <span style="color: #228b22;">int</span> <span style="color: #a0522d;">k</span> = tmp_array[i];
+    <span style="color: #a020f0;">if</span> (k &lt; 0 || k &gt;= shell_num) {
+      qmckl_free(context, tmp_array);
+      tmp_array = <span style="color: #008b8b;">NULL</span>;
+      qmckl_free(context, shell_prim_index);
+      shell_prim_index = <span style="color: #008b8b;">NULL</span>;
+      <span style="color: #a020f0;">return</span> qmckl_failwith( context,
+                             QMCKL_FAILURE,
+                             <span style="color: #8b2252;">"trexio_read_basis_shell_prim_index"</span>,
+                             <span style="color: #8b2252;">"Irrelevant data in TREXIO file"</span>);
+    }
+    shell_prim_index[k] = i;
+  }
+
+  qmckl_free(context, tmp_array);
+  tmp_array = <span style="color: #008b8b;">NULL</span>;
+
+  /* <span style="color: #b22222;">Store data</span> */
+  rc = qmckl_set_ao_basis_shell_prim_index(context, shell_prim_index, shell_num);
 
   qmckl_free(context, shell_prim_index);
   shell_prim_index = <span style="color: #008b8b;">NULL</span>;
@@ -950,12 +1053,14 @@ rc = qmckl_set_ao_basis_ao_num(context, ao_num);
 </div>
 </div>
 
-<div id="outline-container-org2de8bf8" class="outline-4">
-<h4 id="org2de8bf8"><span class="section-number-4">1.4.10</span> Normalization of the shells</h4>
+<div id="outline-container-org8b9bd77" class="outline-4">
+<h4 id="org8b9bd77"><span class="section-number-4">1.4.10.</span> Normalization of the shells</h4>
 <div class="outline-text-4" id="text-1-4-10">
 <div class="org-src-container">
 <pre class="src src-c">{
   <span style="color: #228b22;">qmckl_memory_info_struct</span> <span style="color: #a0522d;">mem_info</span> = qmckl_memory_info_struct_zero;
+
+  /* <span style="color: #b22222;">Allocate array for data</span> */
   mem_info.size = shell_num * <span style="color: #a020f0;">sizeof</span>(<span style="color: #228b22;">double</span>);
 
   <span style="color: #228b22;">double</span>* <span style="color: #a0522d;">shell_factor</span> = (<span style="color: #228b22;">double</span>*) qmckl_malloc(context, mem_info);
@@ -969,15 +1074,19 @@ rc = qmckl_set_ao_basis_ao_num(context, ao_num);
 
   assert (shell_factor != <span style="color: #008b8b;">NULL</span>);
 
-  rcio = trexio_read_basis_shell_factor_64(file, shell_factor);
+  /* <span style="color: #b22222;">Read data</span> */
+  rcio = trexio_read_safe_basis_shell_factor_64(file, shell_factor, shell_num);
   <span style="color: #a020f0;">if</span> (rcio != TREXIO_SUCCESS) {
+    qmckl_free(context, shell_factor);
+    shell_factor = <span style="color: #008b8b;">NULL</span>;
     <span style="color: #a020f0;">return</span> qmckl_failwith( context,
                            QMCKL_FAILURE,
                            <span style="color: #8b2252;">"trexio_read_basis_shell_factor"</span>,
                            trexio_string_of_error(rcio));
   }
 
-  rc = qmckl_set_ao_basis_shell_factor(context, shell_factor);
+  /* <span style="color: #b22222;">Store data</span> */
+  rc = qmckl_set_ao_basis_shell_factor(context, shell_factor, shell_num);
 
   qmckl_free(context, shell_factor);
   shell_factor = <span style="color: #008b8b;">NULL</span>;
@@ -990,12 +1099,14 @@ rc = qmckl_set_ao_basis_ao_num(context, ao_num);
 </div>
 </div>
 
-<div id="outline-container-org02cba19" class="outline-4">
-<h4 id="org02cba19"><span class="section-number-4">1.4.11</span> Exponents</h4>
+<div id="outline-container-orgc391a59" class="outline-4">
+<h4 id="orgc391a59"><span class="section-number-4">1.4.11.</span> Exponents</h4>
 <div class="outline-text-4" id="text-1-4-11">
 <div class="org-src-container">
 <pre class="src src-c">{
   <span style="color: #228b22;">qmckl_memory_info_struct</span> <span style="color: #a0522d;">mem_info</span> = qmckl_memory_info_struct_zero;
+
+  /* <span style="color: #b22222;">Allocate array for data</span> */
   mem_info.size = prim_num * <span style="color: #a020f0;">sizeof</span>(<span style="color: #228b22;">double</span>);
 
   <span style="color: #228b22;">double</span>* <span style="color: #a0522d;">exponent</span> = (<span style="color: #228b22;">double</span>*) qmckl_malloc(context, mem_info);
@@ -1009,15 +1120,19 @@ rc = qmckl_set_ao_basis_ao_num(context, ao_num);
 
   assert (exponent != <span style="color: #008b8b;">NULL</span>);
 
-  rcio = trexio_read_basis_exponent_64(file, exponent);
+  /* <span style="color: #b22222;">Read data</span> */
+  rcio = trexio_read_safe_basis_exponent_64(file, exponent, prim_num);
   <span style="color: #a020f0;">if</span> (rcio != TREXIO_SUCCESS) {
+    qmckl_free(context, exponent);
+    exponent = <span style="color: #008b8b;">NULL</span>;
     <span style="color: #a020f0;">return</span> qmckl_failwith( context,
                            QMCKL_FAILURE,
                            <span style="color: #8b2252;">"trexio_read_basis_exponent"</span>,
                            trexio_string_of_error(rcio));
   }
 
-  rc = qmckl_set_ao_basis_exponent(context, exponent);
+  /* <span style="color: #b22222;">Store data</span> */
+  rc = qmckl_set_ao_basis_exponent(context, exponent, prim_num);
 
   qmckl_free(context, exponent);
   exponent = <span style="color: #008b8b;">NULL</span>;
@@ -1030,12 +1145,14 @@ rc = qmckl_set_ao_basis_ao_num(context, ao_num);
 </div>
 </div>
 
-<div id="outline-container-org0f4c859" class="outline-4">
-<h4 id="org0f4c859"><span class="section-number-4">1.4.12</span> Coefficients</h4>
+<div id="outline-container-org4614cdf" class="outline-4">
+<h4 id="org4614cdf"><span class="section-number-4">1.4.12.</span> Coefficients</h4>
 <div class="outline-text-4" id="text-1-4-12">
 <div class="org-src-container">
 <pre class="src src-c">{
   <span style="color: #228b22;">qmckl_memory_info_struct</span> <span style="color: #a0522d;">mem_info</span> = qmckl_memory_info_struct_zero;
+
+  /* <span style="color: #b22222;">Allocate array for data</span> */
   mem_info.size = prim_num * <span style="color: #a020f0;">sizeof</span>(<span style="color: #228b22;">double</span>);
 
   <span style="color: #228b22;">double</span>* <span style="color: #a0522d;">coefficient</span> = (<span style="color: #228b22;">double</span>*) qmckl_malloc(context, mem_info);
@@ -1049,15 +1166,19 @@ rc = qmckl_set_ao_basis_ao_num(context, ao_num);
 
   assert (coefficient != <span style="color: #008b8b;">NULL</span>);
 
-  rcio = trexio_read_basis_coefficient_64(file, coefficient);
+  /* <span style="color: #b22222;">Read data</span> */
+  rcio = trexio_read_safe_basis_coefficient_64(file, coefficient, prim_num);
   <span style="color: #a020f0;">if</span> (rcio != TREXIO_SUCCESS) {
+    qmckl_free(context, coefficient);
+    coefficient = <span style="color: #008b8b;">NULL</span>;
     <span style="color: #a020f0;">return</span> qmckl_failwith( context,
                            QMCKL_FAILURE,
                            <span style="color: #8b2252;">"trexio_read_basis_coefficient"</span>,
                            trexio_string_of_error(rcio));
   }
 
-  rc = qmckl_set_ao_basis_coefficient(context, coefficient);
+  /* <span style="color: #b22222;">Store data</span> */
+  rc = qmckl_set_ao_basis_coefficient(context, coefficient, prim_num);
 
   qmckl_free(context, coefficient);
   coefficient = <span style="color: #008b8b;">NULL</span>;
@@ -1070,12 +1191,14 @@ rc = qmckl_set_ao_basis_ao_num(context, ao_num);
 </div>
 </div>
 
-<div id="outline-container-orgfce8935" class="outline-4">
-<h4 id="orgfce8935"><span class="section-number-4">1.4.13</span> Normalization of the primitivies</h4>
+<div id="outline-container-orgfb2fe9a" class="outline-4">
+<h4 id="orgfb2fe9a"><span class="section-number-4">1.4.13.</span> Normalization of the primitivies</h4>
 <div class="outline-text-4" id="text-1-4-13">
 <div class="org-src-container">
 <pre class="src src-c">{
   <span style="color: #228b22;">qmckl_memory_info_struct</span> <span style="color: #a0522d;">mem_info</span> = qmckl_memory_info_struct_zero;
+
+  /* <span style="color: #b22222;">Allocate array for data</span> */
   mem_info.size = prim_num * <span style="color: #a020f0;">sizeof</span>(<span style="color: #228b22;">double</span>);
 
   <span style="color: #228b22;">double</span>* <span style="color: #a0522d;">prim_factor</span> = (<span style="color: #228b22;">double</span>*) qmckl_malloc(context, mem_info);
@@ -1089,15 +1212,19 @@ rc = qmckl_set_ao_basis_ao_num(context, ao_num);
 
   assert (prim_factor != <span style="color: #008b8b;">NULL</span>);
 
-  rcio = trexio_read_basis_prim_factor_64(file, prim_factor);
+  /* <span style="color: #b22222;">Read data</span> */
+  rcio = trexio_read_safe_basis_prim_factor_64(file, prim_factor, prim_num);
   <span style="color: #a020f0;">if</span> (rcio != TREXIO_SUCCESS) {
+    qmckl_free(context, prim_factor);
+    prim_factor = <span style="color: #008b8b;">NULL</span>;
     <span style="color: #a020f0;">return</span> qmckl_failwith( context,
                            QMCKL_FAILURE,
                            <span style="color: #8b2252;">"trexio_read_basis_prim_factor"</span>,
                            trexio_string_of_error(rcio));
   }
 
-  rc = qmckl_set_ao_basis_prim_factor(context, prim_factor);
+  /* <span style="color: #b22222;">Read data</span> */
+  rc = qmckl_set_ao_basis_prim_factor(context, prim_factor, prim_num);
 
   qmckl_free(context, prim_factor);
   prim_factor = <span style="color: #008b8b;">NULL</span>;
@@ -1107,6 +1234,53 @@ rc = qmckl_set_ao_basis_ao_num(context, ao_num);
 }
 </pre>
 </div>
+</div>
+</div>
+
+<div id="outline-container-org6fb6864" class="outline-4">
+<h4 id="org6fb6864"><span class="section-number-4">1.4.14.</span> AO Normalization</h4>
+<div class="outline-text-4" id="text-1-4-14">
+<div class="org-src-container">
+<pre class="src src-c">{
+  <span style="color: #228b22;">qmckl_memory_info_struct</span> <span style="color: #a0522d;">mem_info</span> = qmckl_memory_info_struct_zero;
+
+  /* <span style="color: #b22222;">Allocate array for data</span> */
+  mem_info.size = ao_num * <span style="color: #a020f0;">sizeof</span>(<span style="color: #228b22;">double</span>);
+
+  <span style="color: #228b22;">double</span>* <span style="color: #a0522d;">ao_normalization</span> = (<span style="color: #228b22;">double</span>*) qmckl_malloc(context, mem_info);
+
+  <span style="color: #a020f0;">if</span> (ao_normalization == <span style="color: #008b8b;">NULL</span>) {
+    <span style="color: #a020f0;">return</span> qmckl_failwith( context,
+                           QMCKL_ALLOCATION_FAILED,
+                           <span style="color: #8b2252;">"qmckl_trexio_read_ao_normalization_X"</span>,
+                           <span style="color: #008b8b;">NULL</span>);
+  }
+
+  assert (ao_normalization != <span style="color: #008b8b;">NULL</span>);
+
+  /* <span style="color: #b22222;">Read data</span> */
+  rcio = trexio_read_safe_ao_normalization_64(file, ao_normalization, ao_num);
+  <span style="color: #a020f0;">if</span> (rcio != TREXIO_SUCCESS) {
+    qmckl_free(context, ao_normalization);
+    ao_normalization = <span style="color: #008b8b;">NULL</span>;
+    <span style="color: #a020f0;">return</span> qmckl_failwith( context,
+                           QMCKL_FAILURE,
+                           <span style="color: #8b2252;">"trexio_read_ao_normalization"</span>,
+                           trexio_string_of_error(rcio));
+  }
+
+  /* <span style="color: #b22222;">Store data</span> */
+  rc = qmckl_set_ao_basis_ao_factor(context, ao_normalization, ao_num);
+
+  qmckl_free(context, ao_normalization);
+  ao_normalization = <span style="color: #008b8b;">NULL</span>;
+
+  <span style="color: #a020f0;">if</span> (rc != QMCKL_SUCCESS)
+    <span style="color: #a020f0;">return</span> rc;
+}
+</pre>
+</div>
+
 
 
 <div class="org-src-container">
@@ -1119,9 +1293,8 @@ rc = qmckl_set_ao_basis_ao_num(context, ao_num);
 </div>
 </div>
 </div>
-
-<div id="outline-container-org86c3de0" class="outline-3">
-<h3 id="org86c3de0"><span class="section-number-3">1.5</span> Molecular orbitals</h3>
+<div id="outline-container-orgda0fe52" class="outline-3">
+<h3 id="orgda0fe52"><span class="section-number-3">1.5.</span> Molecular orbitals</h3>
 <div class="outline-text-3" id="text-1-5">
 <p>
 In this section we read the MO coefficients.
@@ -1147,8 +1320,8 @@ In this section we read the MO coefficients.
 </div>
 </div>
 
-<div id="outline-container-orgd3c1d0f" class="outline-4">
-<h4 id="orgd3c1d0f"><span class="section-number-4">1.5.1</span> Number of MOs</h4>
+<div id="outline-container-org0a5d5b9" class="outline-4">
+<h4 id="org0a5d5b9"><span class="section-number-4">1.5.1.</span> Number of MOs</h4>
 <div class="outline-text-4" id="text-1-5-1">
 <div class="org-src-container">
 <pre class="src src-c"><span style="color: #228b22;">int64_t</span> <span style="color: #a0522d;">mo_num</span> = 0L;
@@ -1171,8 +1344,8 @@ rc = qmckl_set_mo_basis_mo_num(context, mo_num);
 </div>
 </div>
 
-<div id="outline-container-org1cf037a" class="outline-4">
-<h4 id="org1cf037a"><span class="section-number-4">1.5.2</span> MO coefficients</h4>
+<div id="outline-container-orgb0123e6" class="outline-4">
+<h4 id="orgb0123e6"><span class="section-number-4">1.5.2.</span> MO coefficients</h4>
 <div class="outline-text-4" id="text-1-5-2">
 <div class="org-src-container">
 <pre class="src src-c">{
@@ -1198,7 +1371,7 @@ rc = qmckl_set_mo_basis_mo_num(context, mo_num);
                            trexio_string_of_error(rcio));
   }
 
-  rc = qmckl_set_mo_basis_coefficient(context, mo_coef);
+  rc = qmckl_set_mo_basis_coefficient(context, mo_coef, ao_num*mo_num);
 
   qmckl_free(context, mo_coef);
   mo_coef = <span style="color: #008b8b;">NULL</span>;
@@ -1221,30 +1394,36 @@ rc = qmckl_set_mo_basis_mo_num(context, mo_num);
 </div>
 </div>
 
-<div id="outline-container-org5d45f9e" class="outline-3">
-<h3 id="org5d45f9e"><span class="section-number-3">1.6</span> <span class="todo TODO">TODO</span> ECP</h3>
+<div id="outline-container-org0c21369" class="outline-3">
+<h3 id="org0c21369"><span class="section-number-3">1.6.</span> <span class="todo TODO">TODO</span> ECP</h3>
 </div>
 </div>
-<div id="outline-container-org91ca46b" class="outline-2">
-<h2 id="org91ca46b"><span class="section-number-2">2</span> Read everything</h2>
+<div id="outline-container-orge1f0eab" class="outline-2">
+<h2 id="orge1f0eab"><span class="section-number-2">2.</span> Read everything</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #228b22;">qmckl_exit_code</span> <span style="color: #0000ff;">qmckl_trexio_read</span>(<span style="color: #a020f0;">const</span> <span style="color: #228b22;">qmckl_context</span> <span style="color: #a0522d;">context</span>, <span style="color: #a020f0;">const</span> <span style="color: #228b22;">char</span>* <span style="color: #a0522d;">file_name</span>);
+<pre class="src src-c"><span style="color: #228b22;">qmckl_exit_code</span>
+<span style="color: #0000ff;">qmckl_trexio_read</span>(<span style="color: #a020f0;">const</span> <span style="color: #228b22;">qmckl_context</span> <span style="color: #a0522d;">context</span>,
+                  <span style="color: #a020f0;">const</span> <span style="color: #228b22;">char</span>* <span style="color: #a0522d;">file_name</span>,
+                  <span style="color: #a020f0;">const</span> <span style="color: #228b22;">int64_t</span> <span style="color: #a0522d;">size_max</span>);
 </pre>
 </div>
 
 <div class="org-src-container">
 <pre class="src src-c"><span style="color: #228b22;">qmckl_exit_code</span>
-<span style="color: #0000ff;">qmckl_trexio_read</span>(<span style="color: #a020f0;">const</span> <span style="color: #228b22;">qmckl_context</span> <span style="color: #a0522d;">context</span>, <span style="color: #a020f0;">const</span> <span style="color: #228b22;">char</span>* <span style="color: #a0522d;">file_name</span>)
+<span style="color: #0000ff;">qmckl_trexio_read</span>(<span style="color: #a020f0;">const</span> <span style="color: #228b22;">qmckl_context</span> <span style="color: #a0522d;">context</span>, <span style="color: #a020f0;">const</span> <span style="color: #228b22;">char</span>* <span style="color: #a0522d;">file_name</span>, <span style="color: #a020f0;">const</span> <span style="color: #228b22;">int64_t</span> <span style="color: #a0522d;">size_max</span>)
 {
   <span style="color: #a020f0;">if</span> (qmckl_context_check(context) == QMCKL_NULL_CONTEXT) {
     <span style="color: #a020f0;">return</span> <span style="color: #008b8b;">false</span>;
   }
 
   <span style="color: #228b22;">qmckl_exit_code</span> <span style="color: #a0522d;">rc</span>;
+  <span style="color: #228b22;">char</span> <span style="color: #a0522d;">file_name_new</span>[size_max+1];
+  strncpy(file_name_new, file_name, size_max);
+  file_name_new[size_max] = <span style="color: #8b2252;">'\0'</span>;
 
 <span style="color: #483d8b;">#ifdef</span> HAVE_TREXIO
-  <span style="color: #228b22;">trexio_t</span>* <span style="color: #a0522d;">file</span> = qmckl_trexio_open_X(file_name, &amp;rc);
+  <span style="color: #228b22;">trexio_t</span>* <span style="color: #a0522d;">file</span> = qmckl_trexio_open_X(file_name_new, &amp;rc);
   <span style="color: #a020f0;">if</span> (file == <span style="color: #008b8b;">NULL</span>) {
     trexio_close(file);
     <span style="color: #a020f0;">return</span> qmckl_failwith( context,
@@ -1258,37 +1437,25 @@ rc = qmckl_set_mo_basis_mo_num(context, mo_num);
   rc = qmckl_trexio_read_electron_X(context, file);
   <span style="color: #a020f0;">if</span> (rc != QMCKL_SUCCESS) {
     trexio_close(file);
-    <span style="color: #a020f0;">return</span> qmckl_failwith( context,
-                           QMCKL_FAILURE,
-                           <span style="color: #8b2252;">"qmckl_trexio_read"</span>,
-                           <span style="color: #8b2252;">"Error reading electron"</span>);
+    <span style="color: #a020f0;">return</span> rc;
   }
 
   rc = qmckl_trexio_read_nucleus_X(context, file);
   <span style="color: #a020f0;">if</span> (rc != QMCKL_SUCCESS) {
     trexio_close(file);
-    <span style="color: #a020f0;">return</span> qmckl_failwith( context,
-                           QMCKL_FAILURE,
-                           <span style="color: #8b2252;">"qmckl_trexio_read"</span>,
-                           <span style="color: #8b2252;">"Error reading nucleus"</span>);
+    <span style="color: #a020f0;">return</span> rc;
   }
 
   rc = qmckl_trexio_read_ao_X(context, file);
   <span style="color: #a020f0;">if</span> (rc != QMCKL_SUCCESS) {
     trexio_close(file);
-    <span style="color: #a020f0;">return</span> qmckl_failwith( context,
-                           QMCKL_FAILURE,
-                           <span style="color: #8b2252;">"qmckl_trexio_read"</span>,
-                           <span style="color: #8b2252;">"Error reading AOs"</span>);
+    <span style="color: #a020f0;">return</span> rc;
   }
 
   rc = qmckl_trexio_read_mo_X(context, file);
   <span style="color: #a020f0;">if</span> (rc != QMCKL_SUCCESS) {
     trexio_close(file);
-    <span style="color: #a020f0;">return</span> qmckl_failwith( context,
-                           QMCKL_FAILURE,
-                           <span style="color: #8b2252;">"qmckl_trexio_read"</span>,
-                           <span style="color: #8b2252;">"Error reading MOs"</span>);
+    <span style="color: #a020f0;">return</span> rc;
   }
 
   trexio_close(file);
@@ -1298,7 +1465,7 @@ rc = qmckl_set_mo_basis_mo_num(context, mo_num);
   rc = qmckl_failwith( context,
                        QMCKL_FAILURE,
                        <span style="color: #8b2252;">"qmckl_trexio_read"</span>,
-                       <span style="color: #8b2252;">"QMCkl was not compiled without TREXIO"</span>);
+                       <span style="color: #8b2252;">"QMCkl was compiled without TREXIO"</span>);
 <span style="color: #483d8b;">#endif</span>
   <span style="color: #a020f0;">return</span> rc;
 }
@@ -1307,50 +1474,43 @@ rc = qmckl_set_mo_basis_mo_num(context, mo_num);
 </div>
 </div>
 
-<div id="outline-container-orga93599e" class="outline-2">
-<h2 id="orga93599e"><span class="section-number-2">3</span> Test</h2>
+<div id="outline-container-orgb7ca09f" class="outline-2">
+<h2 id="orgb7ca09f"><span class="section-number-2">3.</span> Test</h2>
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 <pre class="src src-c"><span style="color: #483d8b;">#ifdef</span> HAVE_TREXIO
 
 <span style="color: #228b22;">qmckl_exit_code</span> <span style="color: #a0522d;">rc</span>;
-<span style="color: #228b22;">char</span> <span style="color: #a0522d;">fname</span>[256];
-<span style="color: #228b22;">char</span> <span style="color: #a0522d;">message</span>[256];
+<span style="color: #228b22;">char</span> <span style="color: #a0522d;">filename</span>[256];
 
 <span style="color: #483d8b;">#if</span><span style="color: #483d8b;">n</span><span style="color: #483d8b;">def</span> QMCKL_TEST_DIR
 <span style="color: #483d8b;">#error</span> <span style="color: #8b2252;">"QMCKL_TEST_DIR is not defined"</span>
 <span style="color: #483d8b;">#endif</span>
 
-<span style="color: #0000ff;">strncpy</span>(fname, QMCKL_TEST_DIR,255);
-<span style="color: #0000ff;">strncat</span>(fname, <span style="color: #8b2252;">"/chbrclf"</span>, 255);
-printf(<span style="color: #8b2252;">"Test file: %s\n"</span>, fname);
-rc = qmckl_trexio_read(context, fname);
+<span style="color: #0000ff;">strncpy</span>(filename, QMCKL_TEST_DIR,255);
+<span style="color: #0000ff;">strncat</span>(filename, <span style="color: #8b2252;">"/chbrclf"</span>, 255);
+printf(<span style="color: #8b2252;">"Test file: %s\n"</span>, filename);
 
-<span style="color: #a020f0;">if</span> (rc != QMCKL_SUCCESS) {
-  printf(<span style="color: #8b2252;">"%s\n"</span>, qmckl_string_of_error(rc));
-  qmckl_get_error(context, &amp;rc, fname, message);
-  printf(<span style="color: #8b2252;">"%s\n"</span>, fname);
-  printf(<span style="color: #8b2252;">"%s\n"</span>, message);
- }
+rc = qmckl_trexio_read(context, filename, 255);
 
-<span style="color: #0000ff;">assert</span> ( rc == QMCKL_SUCCESS );
+<span style="color: #0000ff;">qmckl_check</span>(context, rc);
 
 </pre>
 </div>
 </div>
 
-<div id="outline-container-orgc2d1973" class="outline-4">
-<h4 id="orgc2d1973"><span class="section-number-4">3.0.1</span> Electrons</h4>
+<div id="outline-container-org48eb1ba" class="outline-4">
+<h4 id="org48eb1ba"><span class="section-number-4">3.0.1.</span> Electrons</h4>
 <div class="outline-text-4" id="text-3-0-1">
 <div class="org-src-container">
 <pre class="src src-c">printf(<span style="color: #8b2252;">"Electrons\n"</span>);
 <span style="color: #228b22;">int64_t</span> <span style="color: #a0522d;">up_num</span>, <span style="color: #a0522d;">dn_num</span>;
 rc = qmckl_get_electron_up_num(context, &amp;up_num);
-<span style="color: #0000ff;">assert</span> (rc == QMCKL_SUCCESS);
+<span style="color: #0000ff;">qmckl_check</span>(context, rc);
 <span style="color: #0000ff;">assert</span> (up_num == chbrclf_elec_up_num);
 
 rc = qmckl_get_electron_down_num(context, &amp;dn_num);
-<span style="color: #0000ff;">assert</span> (rc == QMCKL_SUCCESS);
+<span style="color: #0000ff;">qmckl_check</span>(context, rc);
 <span style="color: #0000ff;">assert</span> (dn_num == chbrclf_elec_dn_num);
 
 </pre>
@@ -1358,21 +1518,21 @@ rc = qmckl_get_electron_down_num(context, &amp;dn_num);
 </div>
 </div>
 
-<div id="outline-container-org4de427f" class="outline-4">
-<h4 id="org4de427f"><span class="section-number-4">3.0.2</span> Nuclei</h4>
+<div id="outline-container-org5d78781" class="outline-4">
+<h4 id="org5d78781"><span class="section-number-4">3.0.2.</span> Nuclei</h4>
 <div class="outline-text-4" id="text-3-0-2">
 <div class="org-src-container">
 <pre class="src src-c">printf(<span style="color: #8b2252;">"Nuclei\n"</span>);
 
 <span style="color: #228b22;">int64_t</span> <span style="color: #a0522d;">nucl_num</span>;
 rc = qmckl_get_nucleus_num(context, &amp;nucl_num);
-<span style="color: #0000ff;">assert</span> (rc == QMCKL_SUCCESS);
+<span style="color: #0000ff;">qmckl_check</span>(context, rc);
 <span style="color: #0000ff;">assert</span> (nucl_num == chbrclf_nucl_num);
 
 printf(<span style="color: #8b2252;">"Nuclear charges\n"</span>);
 <span style="color: #228b22;">double</span> * <span style="color: #a0522d;">charge</span> = (<span style="color: #228b22;">double</span>*) <span style="color: #0000ff;">malloc</span> (<span style="color: #228b22;">nucl_num</span> * <span style="color: #a020f0;">sizeof</span>(<span style="color: #228b22;">double</span>));
-rc = qmckl_get_nucleus_charge(context, charge);
-<span style="color: #0000ff;">assert</span> (rc == QMCKL_SUCCESS);
+rc = qmckl_get_nucleus_charge(context, charge, nucl_num);
+<span style="color: #0000ff;">qmckl_check</span>(context, rc);
 <span style="color: #a020f0;">for</span> (<span style="color: #228b22;">int</span> <span style="color: #a0522d;">i</span>=0 ; i&lt;nucl_num ; i++) {
   assert (charge[i] == chbrclf_charge[i]);
  }
@@ -1381,8 +1541,8 @@ charge = <span style="color: #008b8b;">NULL</span>;
 
 printf(<span style="color: #8b2252;">"Nuclear coordinates\n"</span>);
 <span style="color: #228b22;">double</span> * <span style="color: #a0522d;">coord</span>  = (<span style="color: #228b22;">double</span>*) <span style="color: #0000ff;">malloc</span> (<span style="color: #228b22;">nucl_num</span> * 3 * <span style="color: #a020f0;">sizeof</span>(<span style="color: #228b22;">double</span>));
-rc = qmckl_get_nucleus_coord(context, <span style="color: #8b2252;">'T'</span>, coord);
-<span style="color: #0000ff;">assert</span> (rc == QMCKL_SUCCESS);
+rc = qmckl_get_nucleus_coord(context, <span style="color: #8b2252;">'T'</span>, coord, 3*nucl_num);
+<span style="color: #0000ff;">qmckl_check</span>(context, rc);
 <span style="color: #228b22;">int</span> <span style="color: #a0522d;">k</span>=0;
 <span style="color: #a020f0;">for</span> (<span style="color: #228b22;">int</span> <span style="color: #a0522d;">j</span>=0 ; j&lt;3 ; ++j) {
   <span style="color: #a020f0;">for</span> (<span style="color: #228b22;">int</span> <span style="color: #a0522d;">i</span>=0 ; i&lt;nucl_num ; ++i) {
@@ -1399,8 +1559,8 @@ coord = <span style="color: #008b8b;">NULL</span>;
 </div>
 </div>
 
-<div id="outline-container-orga0de73a" class="outline-4">
-<h4 id="orga0de73a"><span class="section-number-4">3.0.3</span> Atomic basis</h4>
+<div id="outline-container-orgefb062c" class="outline-4">
+<h4 id="orgefb062c"><span class="section-number-4">3.0.3.</span> Atomic basis</h4>
 <div class="outline-text-4" id="text-3-0-3">
 <div class="org-src-container">
 <pre class="src src-c">printf(<span style="color: #8b2252;">"Atomic basis\n"</span>);
@@ -1423,7 +1583,7 @@ rc = qmckl_get_ao_basis_ao_num(context, &amp;ao_num);
 
 <span style="color: #228b22;">int64_t</span>* <span style="color: #a0522d;">nucleus_index</span> = (<span style="color: #228b22;">int64_t</span>*) <span style="color: #0000ff;">malloc</span> (<span style="color: #228b22;">nucl_num</span> * <span style="color: #a020f0;">sizeof</span>(<span style="color: #228b22;">int64_t</span>));
 rc = qmckl_get_ao_basis_nucleus_index(context, nucleus_index, nucl_num);
-<span style="color: #0000ff;">assert</span> (rc == QMCKL_SUCCESS);
+<span style="color: #0000ff;">qmckl_check</span>(context, rc);
 <span style="color: #a020f0;">for</span> (<span style="color: #228b22;">int</span> <span style="color: #a0522d;">i</span>=0 ; i&lt;nucl_num ; i++) {
   assert (nucleus_index[i] == chbrclf_basis_nucleus_index[i]);
  }
@@ -1432,7 +1592,7 @@ nucleus_index = <span style="color: #008b8b;">NULL</span>;
 
 <span style="color: #228b22;">int64_t</span>* <span style="color: #a0522d;">nucleus_shell_num</span>  = (<span style="color: #228b22;">int64_t</span>*) <span style="color: #0000ff;">malloc</span> (<span style="color: #228b22;">nucl_num</span> * <span style="color: #a020f0;">sizeof</span>(<span style="color: #228b22;">int64_t</span>));
 rc = qmckl_get_ao_basis_nucleus_shell_num(context, nucleus_shell_num, nucl_num);
-<span style="color: #0000ff;">assert</span> (rc == QMCKL_SUCCESS);
+<span style="color: #0000ff;">qmckl_check</span>(context, rc);
 <span style="color: #a020f0;">for</span> (<span style="color: #228b22;">int</span> <span style="color: #a0522d;">i</span>=0 ; i&lt;nucl_num ; i++) {
   assert (nucleus_shell_num[i] == chbrclf_basis_nucleus_shell_num[i]);
  }
@@ -1441,7 +1601,7 @@ nucleus_shell_num = <span style="color: #008b8b;">NULL</span>;
 
 <span style="color: #228b22;">int32_t</span>* <span style="color: #a0522d;">shell_ang_mom</span>  = (<span style="color: #228b22;">int32_t</span>*) <span style="color: #0000ff;">malloc</span> (<span style="color: #228b22;">shell_num</span> * <span style="color: #a020f0;">sizeof</span>(<span style="color: #228b22;">int32_t</span>));
 rc = qmckl_get_ao_basis_shell_ang_mom(context, shell_ang_mom, shell_num);
-<span style="color: #0000ff;">assert</span> (rc == QMCKL_SUCCESS);
+<span style="color: #0000ff;">qmckl_check</span>(context, rc);
 <span style="color: #a020f0;">for</span> (<span style="color: #228b22;">int</span> <span style="color: #a0522d;">i</span>=0 ; i&lt;shell_num ; i++) {
   assert (shell_ang_mom[i] == chbrclf_basis_shell_ang_mom[i]);
  }
@@ -1450,7 +1610,7 @@ shell_ang_mom = <span style="color: #008b8b;">NULL</span>;
 
 <span style="color: #228b22;">int64_t</span>* <span style="color: #a0522d;">shell_prim_num</span>  = (<span style="color: #228b22;">int64_t</span>*) <span style="color: #0000ff;">malloc</span> (<span style="color: #228b22;">shell_num</span> * <span style="color: #a020f0;">sizeof</span>(<span style="color: #228b22;">int64_t</span>));
 rc = qmckl_get_ao_basis_shell_prim_num(context, shell_prim_num, shell_num);
-<span style="color: #0000ff;">assert</span> (rc == QMCKL_SUCCESS);
+<span style="color: #0000ff;">qmckl_check</span>(context, rc);
 <span style="color: #a020f0;">for</span> (<span style="color: #228b22;">int</span> <span style="color: #a0522d;">i</span>=0 ; i&lt;shell_num ; i++) {
   assert (shell_prim_num[i] == chbrclf_basis_shell_prim_num[i]);
  }
@@ -1459,7 +1619,7 @@ shell_prim_num = <span style="color: #008b8b;">NULL</span>;
 
 <span style="color: #228b22;">int64_t</span>* <span style="color: #a0522d;">shell_prim_index</span>  = (<span style="color: #228b22;">int64_t</span>*) <span style="color: #0000ff;">malloc</span> (<span style="color: #228b22;">shell_num</span> * <span style="color: #a020f0;">sizeof</span>(<span style="color: #228b22;">int64_t</span>));
 rc = qmckl_get_ao_basis_shell_prim_index(context, shell_prim_index, shell_num);
-<span style="color: #0000ff;">assert</span> (rc == QMCKL_SUCCESS);
+<span style="color: #0000ff;">qmckl_check</span>(context, rc);
 <span style="color: #a020f0;">for</span> (<span style="color: #228b22;">int</span> <span style="color: #a0522d;">i</span>=0 ; i&lt;shell_num ; i++) {
   assert (shell_prim_index[i] == chbrclf_basis_shell_prim_index[i]);
  }
@@ -1468,7 +1628,7 @@ shell_prim_index = <span style="color: #008b8b;">NULL</span>;
 
 <span style="color: #228b22;">double</span>* <span style="color: #a0522d;">shell_factor</span> = (<span style="color: #228b22;">double</span>*) <span style="color: #0000ff;">malloc</span> (<span style="color: #228b22;">shell_num</span> * <span style="color: #a020f0;">sizeof</span>(<span style="color: #228b22;">double</span>));
 rc = qmckl_get_ao_basis_shell_factor(context, shell_factor, shell_num);
-<span style="color: #0000ff;">assert</span> (rc == QMCKL_SUCCESS);
+<span style="color: #0000ff;">qmckl_check</span>(context, rc);
 <span style="color: #a020f0;">for</span> (<span style="color: #228b22;">int</span> <span style="color: #a0522d;">i</span>=0 ; i&lt;shell_num ; i++) {
   assert (fabs(shell_factor[i] - chbrclf_basis_shell_factor[i]) &lt; 1.e-6);
  }
@@ -1477,7 +1637,7 @@ shell_factor = <span style="color: #008b8b;">NULL</span>;
 
 <span style="color: #228b22;">double</span>* <span style="color: #a0522d;">exponent</span> = (<span style="color: #228b22;">double</span>*) <span style="color: #0000ff;">malloc</span> (<span style="color: #228b22;">prim_num</span> * <span style="color: #a020f0;">sizeof</span>(<span style="color: #228b22;">double</span>));
 rc = qmckl_get_ao_basis_exponent(context, exponent, prim_num);
-<span style="color: #0000ff;">assert</span> (rc == QMCKL_SUCCESS);
+<span style="color: #0000ff;">qmckl_check</span>(context, rc);
 <span style="color: #a020f0;">for</span> (<span style="color: #228b22;">int</span> <span style="color: #a0522d;">i</span>=0 ; i&lt;prim_num ; i++) {
   assert (fabs((exponent[i] - chbrclf_basis_exponent[i])/chbrclf_basis_exponent[i]) &lt; 1.e-7);
  }
@@ -1486,7 +1646,7 @@ exponent = <span style="color: #008b8b;">NULL</span>;
 
 <span style="color: #228b22;">double</span>* <span style="color: #a0522d;">coefficient</span> = (<span style="color: #228b22;">double</span>*) <span style="color: #0000ff;">malloc</span> (<span style="color: #228b22;">prim_num</span> * <span style="color: #a020f0;">sizeof</span>(<span style="color: #228b22;">double</span>));
 rc = qmckl_get_ao_basis_coefficient(context, coefficient, prim_num);
-<span style="color: #0000ff;">assert</span> (rc == QMCKL_SUCCESS);
+<span style="color: #0000ff;">qmckl_check</span>(context, rc);
 <span style="color: #a020f0;">for</span> (<span style="color: #228b22;">int</span> <span style="color: #a0522d;">i</span>=0 ; i&lt;prim_num ; i++) {
   assert (fabs((coefficient[i] - chbrclf_basis_coefficient[i])/chbrclf_basis_coefficient[i]) &lt; 1.e-7);
  }
@@ -1495,7 +1655,7 @@ coefficient = <span style="color: #008b8b;">NULL</span>;
 
 <span style="color: #228b22;">double</span>* <span style="color: #a0522d;">prim_factor</span> = (<span style="color: #228b22;">double</span>*) <span style="color: #0000ff;">malloc</span> (<span style="color: #228b22;">prim_num</span> * <span style="color: #a020f0;">sizeof</span>(<span style="color: #228b22;">double</span>));
 rc = qmckl_get_ao_basis_prim_factor(context, prim_factor, prim_num);
-<span style="color: #0000ff;">assert</span> (rc == QMCKL_SUCCESS);
+<span style="color: #0000ff;">qmckl_check</span>(context, rc);
 <span style="color: #a020f0;">for</span> (<span style="color: #228b22;">int</span> <span style="color: #a0522d;">i</span>=0 ; i&lt;prim_num ; i++) {
   assert (fabs((prim_factor[i] - chbrclf_basis_prim_factor[i])/chbrclf_basis_prim_factor[i]) &lt; 1.e-7);
  }
@@ -1508,23 +1668,26 @@ prim_factor = <span style="color: #008b8b;">NULL</span>;
 </div>
 </div>
 
-<div id="outline-container-orgd7c5e31" class="outline-4">
-<h4 id="orgd7c5e31"><span class="section-number-4">3.0.4</span> MO Basis</h4>
+<div id="outline-container-org8360ecd" class="outline-4">
+<h4 id="org8360ecd"><span class="section-number-4">3.0.4.</span> MO Basis</h4>
 <div class="outline-text-4" id="text-3-0-4">
 <div class="org-src-container">
 <pre class="src src-c">printf(<span style="color: #8b2252;">"MOs\n"</span>);
 
 <span style="color: #228b22;">int64_t</span> <span style="color: #a0522d;">mo_num</span>;
 rc = qmckl_get_mo_basis_mo_num(context, &amp;mo_num);
-<span style="color: #0000ff;">assert</span> (rc == QMCKL_SUCCESS);
+<span style="color: #0000ff;">qmckl_check</span>(context, rc);
+
 <span style="color: #0000ff;">assert</span> (mo_num == chbrclf_mo_num);
 
 printf(<span style="color: #8b2252;">"MO coefs\n"</span>);
-<span style="color: #228b22;">double</span> * <span style="color: #a0522d;">mo_coef</span> = (<span style="color: #228b22;">double</span>*) <span style="color: #0000ff;">malloc</span> (<span style="color: #228b22;">ao_num</span> * <span style="color: #0000ff;">mo_num</span> * <span style="color: #a020f0;">sizeof</span>(<span style="color: #228b22;">double</span>));
+<span style="color: #228b22;">double</span> * <span style="color: #a0522d;">mo_coef</span> = (<span style="color: #228b22;">double</span>*) <span style="color: #0000ff;">malloc</span> (<span style="color: #228b22;">ao_num</span> * <span style="color: #a0522d;">mo_num</span> * <span style="color: #a020f0;">sizeof</span>(<span style="color: #228b22;">double</span>));
 rc = qmckl_get_mo_basis_coefficient(context, mo_coef, mo_num*ao_num);
-<span style="color: #0000ff;">assert</span> (rc == QMCKL_SUCCESS);
+<span style="color: #0000ff;">qmckl_check</span>(context, rc);
 <span style="color: #a020f0;">for</span> (<span style="color: #228b22;">int</span> <span style="color: #a0522d;">i</span>=0 ; i&lt;ao_num * mo_num ; i++) {
-  assert (mo_coef[i] == chbrclf_mo_coef[i]);
+  printf(<span style="color: #8b2252;">"%d %e %e %e\n"</span>, i, mo_coef[i], chbrclf_mo_coef[i],
+         ( fabs(mo_coef[i] - chbrclf_mo_coef[i])/fabs(mo_coef[i])) );
+  assert ( fabs(mo_coef[i] - chbrclf_mo_coef[i])/fabs(mo_coef[i]) &lt; 1.e-12 );
  }
 <span style="color: #0000ff;">free</span>(mo_coef);
 charge = <span style="color: #008b8b;">NULL</span>;
@@ -1537,8 +1700,8 @@ charge = <span style="color: #008b8b;">NULL</span>;
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: TREX CoE</p>
-<p class="date">Created: 2021-10-17 Sun 15:02</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2025-11-28 Fri 18:52</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

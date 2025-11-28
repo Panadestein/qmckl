@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-17 Sun 15:02 -->
+<!-- 2025-11-28 Fri 18:52 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Introduction</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="TREX CoE" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -40,22 +41,22 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
-    padding-top: 1.2em;
+    overflow: auto;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -161,6 +162,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -177,70 +191,17 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
 <link rel="stylesheet" title="Standard" href="qmckl.css" type="text/css" />
 
-<script type="text/javascript" src="org-info.js">
-/**
- *
- * @source: org-info.js
- *
- * @licstart  The following is the entire license notice for the
- *  JavaScript code in org-info.js.
- *
- * Copyright (C) 2012-2019 Free Software Foundation, Inc.
- *
- *
- * The JavaScript code in this tag is free software: you can
- * redistribute it and/or modify it under the terms of the GNU
- * General Public License (GNU GPL) as published by the Free Software
- * Foundation, either version 3 of the License, or (at your option)
- * any later version.  The code is distributed WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
- *
- * As additional permission under GNU GPL version 3 section 7, you
- * may distribute non-source (e.g., minimized or compacted) forms of
- * that code without the copy of the GNU GPL normally required by
- * section 4, provided you include this license notice and a URL
- * through which recipients can access the Corresponding Source.
- *
- * @licend  The above is the entire license notice
- * for the JavaScript code in org-info.js.
- *
- */
+<script src="org-info.js">
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+// @license-end
 </script>
 
-<script type="text/javascript">
-
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-
-<!--/*--><![CDATA[/*><!--*/
+<script>
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 org_html_manager.set("TOC_DEPTH", "4");
 org_html_manager.set("LINK_HOME", "index.html");
 org_html_manager.set("LINK_UP", "");
@@ -251,113 +212,131 @@ org_html_manager.set("FIXED_TOC", "0");
 org_html_manager.set("TOC", "1");
 org_html_manager.set("VIEW", "info");
 org_html_manager.setup();  // activate after the parameters are set
-/*]]>*///-->
+// @license-end
 </script>
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
  <a accesskey="h" href=""> UP </a>
  |
  <a accesskey="H" href="index.html"> HOME </a>
-</div><div id="content">
+</div><div id="content" class="content">
 <h1 class="title">Introduction</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org8be788b">1. Using QMCkl</a></li>
-<li><a href="#org1edc7c6">2. Developing in QMCkl</a>
+<li><a href="#orgc42dfe3">1. Installing QMCkl</a>
 <ul>
-<li><a href="#org88a7fb2">2.1. Literate programming</a></li>
-<li><a href="#org8aabc39">2.2. Source code editing</a></li>
-<li><a href="#org7a00d86">2.3. Choice of the programming language</a></li>
-<li><a href="#org8552f93">2.4. Coding rules</a></li>
-<li><a href="#orga44b10b">2.5. Design of the library</a></li>
-<li><a href="#org84c9d42">2.6. Naming conventions</a></li>
-<li><a href="#org8ebf6d0">2.7. Application programming interface</a></li>
-<li><a href="#orga21b966">2.8. Global state</a></li>
-<li><a href="#org3af6ff0">2.9. Headers</a></li>
-<li><a href="#orgf55c24b">2.10. Low-level functions</a></li>
-<li><a href="#orgd520f61">2.11. High-level functions</a></li>
-<li><a href="#org88c829f">2.12. Numerical precision</a></li>
-<li><a href="#org41c1715">2.13. Algorithms</a></li>
+<li><a href="#org186e412">1.1. Installing from the released tarball (for end users)</a></li>
+<li><a href="#orgfba5ddf">1.2. Installing from the source repository (for developers)</a></li>
+</ul>
+</li>
+<li><a href="#org0775353">2. Using QMCkl</a></li>
+<li><a href="#org167e02a">3. Developing in QMCkl</a>
+<ul>
+<li><a href="#org27a0cdf">3.1. Literate programming</a></li>
+<li><a href="#orgcba9d16">3.2. Source code editing</a></li>
+<li><a href="#org04c6471">3.3. Choice of the programming language</a></li>
+<li><a href="#orgf23084a">3.4. Coding rules</a></li>
+<li><a href="#org885bd8d">3.5. Design of the library</a></li>
+<li><a href="#org065a926">3.6. Naming conventions</a></li>
+<li><a href="#org49d980d">3.7. Application programming interface</a></li>
+<li><a href="#orgdf8c751">3.8. Global state</a></li>
+<li><a href="#org83fea3a">3.9. Headers</a></li>
+<li><a href="#org66fd19a">3.10. Low-level functions</a></li>
+<li><a href="#orgc7f1570">3.11. High-level functions</a></li>
+<li><a href="#orgede58d5">3.12. Numerical precision</a></li>
+<li><a href="#org52c9d8a">3.13. Algorithms</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org8be788b" class="outline-2">
-<h2 id="org8be788b"><span class="section-number-2">1</span> Using QMCkl</h2>
+<div id="outline-container-orgc42dfe3" class="outline-2">
+<h2 id="orgc42dfe3"><span class="section-number-2">1.</span> Installing QMCkl</h2>
 <div class="outline-text-2" id="text-1">
+<p>
+The latest version fo QMCkl can be downloaded
+<a href="https://github.com/TREX-CoE/qmckl/releases/latest">here</a>, and the source code is accessible on the
+<a href="https://github.com/TREX-CoE/qmckl">GitHub repository</a>.
+</p>
+</div>
+
+<div id="outline-container-org186e412" class="outline-3">
+<h3 id="org186e412"><span class="section-number-3">1.1.</span> Installing from the released tarball (for end users)</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+QMCkl is built with GNU Autotools, so the usual
+<code>configure ; make ; make check ; make install</code> scheme will be used.
+</p>
+
+<p>
+As usual, the C compiler can be specified with the <code>CC</code> variable
+and the Fortran compiler with the <code>FC</code> variable. The compiler
+options are defined using <code>CFLAGS</code> and <code>FCFLAGS</code>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfba5ddf" class="outline-3">
+<h3 id="orgfba5ddf"><span class="section-number-3">1.2.</span> Installing from the source repository (for developers)</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+To compile from the source repository, additional dependencies are
+required to generated the source files:
+</p>
+<ul class="org-ul">
+<li>Emacs &gt;= 26</li>
+<li>Autotools</li>
+<li>Python3</li>
+</ul>
+
+<p>
+When the repository is downloaded, the Makefile is not yet
+generated, as well as the configure script. <code>./autogen.sh</code> has
+to be executed first.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0775353" class="outline-2">
+<h2 id="org0775353"><span class="section-number-2">2.</span> Using QMCkl</h2>
+<div class="outline-text-2" id="text-2">
 <p>
 The <code>qmckl.h</code> header file installed in the <code>${prefix}/include</code> directory
 has to be included in C codes when QMCkl functions are used:
@@ -385,13 +364,13 @@ Both files are located in the <code>include/</code> directory.
 </div>
 </div>
 
-<div id="outline-container-org1edc7c6" class="outline-2">
-<h2 id="org1edc7c6"><span class="section-number-2">2</span> Developing in QMCkl</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-org167e02a" class="outline-2">
+<h2 id="org167e02a"><span class="section-number-2">3.</span> Developing in QMCkl</h2>
+<div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org88a7fb2" class="outline-3">
-<h3 id="org88a7fb2"><span class="section-number-3">2.1</span> Literate programming</h3>
-<div class="outline-text-3" id="text-2-1">
+<div id="outline-container-org27a0cdf" class="outline-3">
+<h3 id="org27a0cdf"><span class="section-number-3">3.1.</span> Literate programming</h3>
+<div class="outline-text-3" id="text-3-1">
 <p>
 In a traditional source code, most of the lines of source files of a program
 are code, scripts, Makefiles, and only a few lines are comments explaining
@@ -432,12 +411,17 @@ the command-line in the <code>Makefile</code>, and then the produced files are c
 Moreover, within the Emacs text editor the source code blocks can be executed
 interactively, in the same spirit as Jupyter notebooks.
 </p>
+
+<p>
+Note that Emacs is not needed for end users because the distributed
+tarball contains the generated source code.
+</p>
 </div>
 </div>
 
-<div id="outline-container-org8aabc39" class="outline-3">
-<h3 id="org8aabc39"><span class="section-number-3">2.2</span> Source code editing</h3>
-<div class="outline-text-3" id="text-2-2">
+<div id="outline-container-orgcba9d16" class="outline-3">
+<h3 id="orgcba9d16"><span class="section-number-3">3.2.</span> Source code editing</h3>
+<div class="outline-text-3" id="text-3-2">
 <p>
 For a tutorial on literate programming with org-mode, follow <a href="http://www.howardism.org/Technical/Emacs/literate-programming-tutorial.html">this link</a>.
 </p>
@@ -467,46 +451,62 @@ org-mode.
 </div>
 </div>
 
-<div id="outline-container-org7a00d86" class="outline-3">
-<h3 id="org7a00d86"><span class="section-number-3">2.3</span> Choice of the programming language</h3>
-<div class="outline-text-3" id="text-2-3">
+<div id="outline-container-org04c6471" class="outline-3">
+<h3 id="org04c6471"><span class="section-number-3">3.3.</span> Choice of the programming language</h3>
+<div class="outline-text-3" id="text-3-3">
 <p>
-Most of the codes of the <a href="https://trex-coe.eu">TREX CoE</a> are written in Fortran with some scripts in
-Bash and Python. Outside of the CoE, Fortran is also important (Casino, Amolqc),
-and other important languages used by the community are C and C++ (QMCPack,
-QWalk), and Julia is gaining in popularity. The library we design should be
-compatible with all of these languages.  The QMCkl API has to be compatible
-with the C language since libraries with a C-compatible API can be used in
-every other language.
+Most of the codes of the <a href="https://trex-coe.eu">TREX CoE</a> are written in Fortran with some
+scripts in Bash and Python. Outside of the CoE, Fortran is also
+important in QMC codes (Casino, Amolqc), and other important
+languages used by the community are C and C++ (QMCPack, QWalk),
+Julia and Rust are gaining in popularity. We want QMCkl to be
+compatible with all of these languages, so the QMCkl API has to be
+compatible with the C language since libraries with a C-compatible
+API can be used in every other language.
 </p>
 
 <p>
-High-performance versions of the QMCkl, with the same API, will be rewritten by
-the experts in HPC. These optimized libraries will be tuned for specific
-architectures, among which we can cite x86 based processors, and GPU
-accelerators.  Nowadays, the most efficient software tools to take advantage of
-low-level features of the processor (intrinsics) and of GPUs are for C++
-developers. It is highly probable that the optimized implementations will be
-written in C++, and this is agreement with our choice to make the API
-C-compatible.
+High-performance versions of QMCkl, with the same API, can be
+rewritten by HPC experts. These optimized libraries will be tuned
+for specific architectures, among which we can cite x86 based
+processors, and GPU accelerators.  Nowadays, the most efficient
+software tools to take advantage of low-level features
+(intrinsics, prefetching, aligned or pinned memory allocation,
+&#x2026;) are for C++ developers. It is highly probable that optimized
+implementations will be written in C++, but as the API is
+C-compatible this doesn't pose any problem for linking the library
+in other languages.
 </p>
 
 <p>
-Fortran is one of the most common languages used by the community, and is simple
-enough to make the algorithms readable both by experts in QMC, and experts in
-HPC. Hence we propose in this pedagogical implementation of QMCkl to use Fortran
-to express the QMC algorithms. As the main languages of the library is C, this
-implies that the exposed C functions call the Fortran routine.  However, for
-internal functions related to system programming, the C language is more natural
-than Fortran.
+Fortran is one of the most common languages used by the community,
+and is simple enough to make the algorithms readable both by
+experts in QMC, and experts in HPC. Hence we propose in this
+pedagogical implementation of QMCkl to use Fortran to express the
+QMC algorithms.  However, for internal functions related to system
+programming, the C language is more natural than Fortran.
 </p>
 
 <p>
-The Fortran source files should provide a C interface using the
-<code>iso_c_binding</code> module. The name of the Fortran source files should end with
-<code>_f.f90</code> to be properly handled by the <code>Makefile</code>.  The names of the functions
-defined in Fortran should be the same as those exposed in the API suffixed by
-<code>_f</code>.
+As QMCkl appears like a C library, for each Fortran function there
+is an <code>iso_c_binding</code> interface to make the Fortran function
+callable from C. It is this C interface which is exposed to the
+user. As a consequence, the Fortran users of the library never
+call directly the Fortran routines, but call instead the C binding
+function and an <code>iso_c_binding</code> is still required:
+</p>
+
+<pre class="example" id="org1cf0c8a">
+         ISO_C_BINDING        ISO_C_BINDING
+Fortran ---------------&gt;  C  ---------------&gt;  Fortran
+</pre>
+
+<p>
+ The name of the Fortran source files should end with <code>_f.f90</code> to
+be properly handled by the <code>Makefile</code> and to avoid collision of
+object files (<code>*.o</code>) with the compiled C source files. The names
+of the functions defined in Fortran should be the same as those
+exposed in the API suffixed by <code>_f</code>.
 </p>
 
 <p>
@@ -516,9 +516,9 @@ For more guidelines on using Fortran to generate a C interface, see
 </div>
 </div>
 
-<div id="outline-container-org8552f93" class="outline-3">
-<h3 id="org8552f93"><span class="section-number-3">2.4</span> Coding rules</h3>
-<div class="outline-text-3" id="text-2-4">
+<div id="outline-container-orgf23084a" class="outline-3">
+<h3 id="orgf23084a"><span class="section-number-3">3.4.</span> Coding rules</h3>
+<div class="outline-text-3" id="text-3-4">
 <p>
 The authors should follow the recommendations of the C99
 <a href="https://wiki.sei.cmu.edu/confluence/display/c/SEI+CERT+C+Coding+Standard">SEI+CERT C Coding Standard</a>.
@@ -530,14 +530,16 @@ Compliance can be checked with <code>cppcheck</code> as:
 
 <div class="org-src-container">
 <pre class="src src-bash">cppcheck --addon=cert --enable=all *.c &amp;&gt; cppcheck.out
+# <span style="color: #b22222;">or</span>
+make cppcheck ; cat cppcheck.out
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orga44b10b" class="outline-3">
-<h3 id="orga44b10b"><span class="section-number-3">2.5</span> Design of the library</h3>
-<div class="outline-text-3" id="text-2-5">
+<div id="outline-container-org885bd8d" class="outline-3">
+<h3 id="org885bd8d"><span class="section-number-3">3.5.</span> Design of the library</h3>
+<div class="outline-text-3" id="text-3-5">
 <p>
 The proposed API should allow the library to: deal with memory transfers
 between CPU and accelerators, and to use different levels of floating-point
@@ -547,9 +549,9 @@ functions (see below).
 </div>
 </div>
 
-<div id="outline-container-org84c9d42" class="outline-3">
-<h3 id="org84c9d42"><span class="section-number-3">2.6</span> Naming conventions</h3>
-<div class="outline-text-3" id="text-2-6">
+<div id="outline-container-org065a926" class="outline-3">
+<h3 id="org065a926"><span class="section-number-3">3.6.</span> Naming conventions</h3>
+<div class="outline-text-3" id="text-3-6">
 <p>
 To avoid namespace collisions, we use <code>qmckl_</code> as a prefix for all exported
 functions and variables.  All exported header files should have a file name
@@ -563,19 +565,15 @@ produced Fortran file should be <code>xxx.f90</code>.
 </p>
 
 <p>
-Arrays are in uppercase and scalars are in lowercase.
-</p>
-
-<p>
 In the  names of  the variables and  functions, only  the singular
 form is allowed.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org8ebf6d0" class="outline-3">
-<h3 id="org8ebf6d0"><span class="section-number-3">2.7</span> Application programming interface</h3>
-<div class="outline-text-3" id="text-2-7">
+<div id="outline-container-org49d980d" class="outline-3">
+<h3 id="org49d980d"><span class="section-number-3">3.7.</span> Application programming interface</h3>
+<div class="outline-text-3" id="text-3-7">
 <p>
 In the C language, the number of bits used by the integer types can change
 from one architecture to another one. To circumvent this problem, we choose to
@@ -606,15 +604,15 @@ bindings in other languages in other repositories.
 </div>
 </div>
 
-<div id="outline-container-orga21b966" class="outline-3">
-<h3 id="orga21b966"><span class="section-number-3">2.8</span> Global state</h3>
-<div class="outline-text-3" id="text-2-8">
+<div id="outline-container-orgdf8c751" class="outline-3">
+<h3 id="orgdf8c751"><span class="section-number-3">3.8.</span> Global state</h3>
+<div class="outline-text-3" id="text-3-8">
 <p>
 Global variables should  be avoided in the library,  because it is
 possible that one  single program needs to  use multiple instances
 of the library. To solve this  problem we propose to use a pointer
 to  a   <a href="./qmckl_context.html"><code>context</code></a> variable,  built   by  the  library   with  the
-<code>qmckl_context_create</code> function. The <a id="orgf4fef49">=context=</a> contains the global
+<code>qmckl_context_create</code> function. The <a id="orgcd853bf"><code>context</code></a> contains the global
 state of  the library, and is  used as the first  argument of many
 QMCkl functions.
 </p>
@@ -628,9 +626,9 @@ the  state   is  done   by  setters   and  getters,   prefixed  by
 </div>
 </div>
 
-<div id="outline-container-org3af6ff0" class="outline-3">
-<h3 id="org3af6ff0"><span class="section-number-3">2.9</span> Headers</h3>
-<div class="outline-text-3" id="text-2-9">
+<div id="outline-container-org83fea3a" class="outline-3">
+<h3 id="org83fea3a"><span class="section-number-3">3.9.</span> Headers</h3>
+<div class="outline-text-3" id="text-3-9">
 <p>
 A single <code>qmckl.h</code> header to be distributed by the library
 is built by concatenating some of the produced header files.
@@ -717,9 +715,9 @@ and the types definitions should be written in the <code>*fh_type.f90</code> fil
 </div>
 </div>
 
-<div id="outline-container-orgf55c24b" class="outline-3">
-<h3 id="orgf55c24b"><span class="section-number-3">2.10</span> Low-level functions</h3>
-<div class="outline-text-3" id="text-2-10">
+<div id="outline-container-org66fd19a" class="outline-3">
+<h3 id="org66fd19a"><span class="section-number-3">3.10.</span> Low-level functions</h3>
+<div class="outline-text-3" id="text-3-10">
 <p>
 Low-level functions are very simple  functions which are leaves of
 the function call tree (they don't call any other QMCkl function).
@@ -727,15 +725,15 @@ the function call tree (they don't call any other QMCkl function).
 
 <p>
 These  functions   are   <i>pure</i>,   and  unaware   of   the   QMCkl
-<a href="#orgf4fef49"><code>context</code></a>. They are not allowed to allocate/deallocate memory, and
+<a href="#orgcd853bf"><code>context</code></a>. They are not allowed to allocate/deallocate memory, and
 if they need temporary memory it should be provided in input.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgd520f61" class="outline-3">
-<h3 id="orgd520f61"><span class="section-number-3">2.11</span> High-level functions</h3>
-<div class="outline-text-3" id="text-2-11">
+<div id="outline-container-orgc7f1570" class="outline-3">
+<h3 id="orgc7f1570"><span class="section-number-3">3.11.</span> High-level functions</h3>
+<div class="outline-text-3" id="text-3-11">
 <p>
 High-level functions  are at  the top of  the function  call tree.
 They  are  able  to  choose which  lower-level  function  to  call
@@ -743,33 +741,26 @@ depending on the required precision, and do the corresponding type
 conversions.  These functions are  also responsible for allocating
 temporary storage, to simplify the use of accelerators.
 </p>
-
-<p>
-The high-level  functions should be pure,  unless the introduction
-of non-purity is justified. All the side effects should be made in
-the <a href="#orgf4fef49"><code>context</code></a> variable.
-</p>
 </div>
 </div>
 
-<div id="outline-container-org88c829f" class="outline-3">
-<h3 id="org88c829f"><span class="section-number-3">2.12</span> Numerical precision</h3>
-<div class="outline-text-3" id="text-2-12">
+<div id="outline-container-orgede58d5" class="outline-3">
+<h3 id="orgede58d5"><span class="section-number-3">3.12.</span> Numerical precision</h3>
+<div class="outline-text-3" id="text-3-12">
 <p>
-The number of bits of precision  required for a function should be
-given as an input of low-level computational functions. This input
-will be used to define the values of the different thresholds that
-might be  used to  avoid computing unnecessary  noise.  High-level
-functions  will  use  the  precision specified  in  the  <a href="#orgf4fef49"><code>context</code></a>
-variable.
+The minimal number of bits of precision required for a function
+should be given as an input of low-level computational
+functions. This input will be used to define the values of the
+different thresholds that might be used to avoid computing
+unnecessary noise.  High-level functions will use the precision
+specified in the <a href="#orgcd853bf"><code>context</code></a> variable.
 </p>
 
 <p>
 In order to automatize numerical accuracy tests, QMCkl uses
-<a href="https://github.com/verificarlo/verificarlo">Verificarlo</a> and
-its CI functionality. You can read Verificarlo CI's documentation
-at the <a href="https://github.com/verificarlo/verificarlo/blob/master/doc/06-Postprocessing.md#verificarlo-ci">following link</a>.
-Reading it is advised to understand the remainder of this section.
+<a href="https://github.com/verificarlo/verificarlo">Verificarlo</a> and its CI functionality. You can read Verificarlo CI's
+documentation at the <a href="https://github.com/verificarlo/verificarlo/blob/master/doc/06-Postprocessing.md#verificarlo-ci">following link</a>.  Reading it is advised to
+understand the remainder of this section.
 </p>
 
 <p>
@@ -778,7 +769,7 @@ library, use the following configure command :
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #a0522d;">QMCKL_DEVEL</span>=1 ./configure --prefix=$<span style="color: #a0522d;">PWD</span>/_install --enable-silent-rules --enable-maintainer-mode <span style="color: #a0522d;">CC</span>=verificarlo-f <span style="color: #a0522d;">FC</span>=verificarlo-f --host=x86_64 --enable-vfc_ci
+<pre class="src src-bash">./configure <span style="color: #a0522d;">CC</span>=verificarlo-f <span style="color: #a0522d;">FC</span>=verificarlo-f --host=x86_64 --enable-vfc_ci
 </pre>
 </div>
 
@@ -810,7 +801,7 @@ Here are these 3 functions :
 
 
 <p>
-If you need more details on these functions or their Fortran
+If you need more detail on these functions or their Fortran
 interfaces, have a look at the <code>tools/qmckl_probes</code> files.
 </p>
 
@@ -830,9 +821,9 @@ following points :
 </div>
 </div>
 
-<div id="outline-container-org41c1715" class="outline-3">
-<h3 id="org41c1715"><span class="section-number-3">2.13</span> Algorithms</h3>
-<div class="outline-text-3" id="text-2-13">
+<div id="outline-container-org52c9d8a" class="outline-3">
+<h3 id="org52c9d8a"><span class="section-number-3">3.13.</span> Algorithms</h3>
+<div class="outline-text-3" id="text-3-13">
 <p>
 Reducing the scaling of an  algorithm usually implies also reducing
 its arithmetic  complexity (number  of flops per  byte). Therefore,
@@ -847,8 +838,8 @@ implemented adapted to different problem sizes.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: TREX CoE</p>
-<p class="date">Created: 2021-10-17 Sun 15:02</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2025-11-28 Fri 18:52</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

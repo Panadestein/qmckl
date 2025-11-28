@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-17 Sun 15:02 -->
+<!-- 2025-11-28 Fri 18:52 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Error handling</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="TREX CoE" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -40,22 +41,22 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
-    padding-top: 1.2em;
+    overflow: auto;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -161,6 +162,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -177,70 +191,17 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
 <link rel="stylesheet" title="Standard" href="qmckl.css" type="text/css" />
 
-<script type="text/javascript" src="org-info.js">
-/**
- *
- * @source: org-info.js
- *
- * @licstart  The following is the entire license notice for the
- *  JavaScript code in org-info.js.
- *
- * Copyright (C) 2012-2019 Free Software Foundation, Inc.
- *
- *
- * The JavaScript code in this tag is free software: you can
- * redistribute it and/or modify it under the terms of the GNU
- * General Public License (GNU GPL) as published by the Free Software
- * Foundation, either version 3 of the License, or (at your option)
- * any later version.  The code is distributed WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
- *
- * As additional permission under GNU GPL version 3 section 7, you
- * may distribute non-source (e.g., minimized or compacted) forms of
- * that code without the copy of the GNU GPL normally required by
- * section 4, provided you include this license notice and a URL
- * through which recipients can access the Corresponding Source.
- *
- * @licend  The above is the entire license notice
- * for the JavaScript code in org-info.js.
- *
- */
+<script src="org-info.js">
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+// @license-end
 </script>
 
-<script type="text/javascript">
-
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-
-<!--/*--><![CDATA[/*><!--*/
+<script>
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 org_html_manager.set("TOC_DEPTH", "4");
 org_html_manager.set("LINK_HOME", "index.html");
 org_html_manager.set("LINK_UP", "");
@@ -251,53 +212,7 @@ org_html_manager.set("FIXED_TOC", "0");
 org_html_manager.set("TOC", "1");
 org_html_manager.set("VIEW", "info");
 org_html_manager.setup();  // activate after the parameters are set
-/*]]>*///-->
-</script>
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+// @license-end
 </script>
 </head>
 <body>
@@ -305,157 +220,294 @@ for the JavaScript code in this tag.
  <a accesskey="h" href=""> UP </a>
  |
  <a accesskey="H" href="index.html"> HOME </a>
-</div><div id="content">
+</div><div id="content" class="content">
 <h1 class="title">Error handling</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org15036fe">1. Decoding errors</a></li>
-<li><a href="#orge863fc2">2. Data structure in context</a></li>
-<li><a href="#org6eb2637">3. Updating errors in the context</a></li>
-<li><a href="#org9baaf45">4. Get the error</a></li>
-<li><a href="#org6eb023c">5. Failing</a></li>
+<li><a href="#orga6bb373">-</a></li>
+<li><a href="#org66a9d8d">1. Decoding errors</a></li>
+<li><a href="#orgf42e997">2. Data structure in context</a></li>
+<li><a href="#org4043b29">3. Updating errors in the context</a></li>
+<li><a href="#org993bbd2">4. Get the error</a></li>
+<li><a href="#org84aa4d7">5. Failing</a></li>
+<li><a href="#org610e476">6. Last error</a>
+<ul>
+<li><a href="#org01fc105">6.1. Fortran inteface</a></li>
+</ul>
+</li>
+<li><a href="#orgf6908e2">7. Helper functions for debugging</a>
+<ul>
+<li><a href="#orgbe6cec3">7.1. Fortran inteface</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org15036fe" class="outline-2">
-<h2 id="org15036fe"><span class="section-number-2">1</span> Decoding errors</h2>
+<div id="outline-container-orga6bb373" class="outline-2">
+<h2 id="orga6bb373">-</h2>
+<div class="outline-text-2" id="text-orga6bb373">
+<p>
+The library should never make the calling programs abort, nor
+perform any input/output operations. This decision has to be taken
+by the developer of the code calling the library.
+</p>
+
+<p>
+All the functions return with an exit code, defined as
+</p>
+<div class="org-src-container">
+<pre class="src src-c" id="orgf912023"><span style="color: #a020f0;">typedef</span> <span style="color: #228b22;">int32_t</span> <span style="color: #228b22;">qmckl_exit_code</span>;
+</pre>
+</div>
+
+
+<p>
+The exit code returns the completion status of the function to the
+calling program. When a function call completed successfully,
+<code>QMCKL_SUCCESS</code> is returned. If one of the functions of
+the library fails to complete the requested task, an appropriate
+error code is returned to the program.
+</p>
+
+<p>
+Here is the complete list of exit codes.
+</p>
+
+<table id="org757f38f" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Macro</th>
+<th scope="col" class="org-right">Code</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>QMCKL_SUCCESS</code></td>
+<td class="org-right">0</td>
+<td class="org-left">'Success'</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>QMCKL_INVALID_ARG_1</code></td>
+<td class="org-right">1</td>
+<td class="org-left">'Invalid argument 1'</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>QMCKL_INVALID_ARG_2</code></td>
+<td class="org-right">2</td>
+<td class="org-left">'Invalid argument 2'</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>QMCKL_INVALID_ARG_3</code></td>
+<td class="org-right">3</td>
+<td class="org-left">'Invalid argument 3'</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>QMCKL_INVALID_ARG_4</code></td>
+<td class="org-right">4</td>
+<td class="org-left">'Invalid argument 4'</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>QMCKL_INVALID_ARG_5</code></td>
+<td class="org-right">5</td>
+<td class="org-left">'Invalid argument 5'</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>QMCKL_INVALID_ARG_6</code></td>
+<td class="org-right">6</td>
+<td class="org-left">'Invalid argument 6'</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>QMCKL_INVALID_ARG_7</code></td>
+<td class="org-right">7</td>
+<td class="org-left">'Invalid argument 7'</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>QMCKL_INVALID_ARG_8</code></td>
+<td class="org-right">8</td>
+<td class="org-left">'Invalid argument 8'</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>QMCKL_INVALID_ARG_9</code></td>
+<td class="org-right">9</td>
+<td class="org-left">'Invalid argument 9'</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>QMCKL_INVALID_ARG_10</code></td>
+<td class="org-right">10</td>
+<td class="org-left">'Invalid argument 10'</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>QMCKL_INVALID_ARG_11</code></td>
+<td class="org-right">11</td>
+<td class="org-left">'Invalid argument 11'</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>QMCKL_INVALID_ARG_12</code></td>
+<td class="org-right">12</td>
+<td class="org-left">'Invalid argument 12'</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>QMCKL_INVALID_ARG_13</code></td>
+<td class="org-right">13</td>
+<td class="org-left">'Invalid argument 13'</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>QMCKL_INVALID_ARG_14</code></td>
+<td class="org-right">14</td>
+<td class="org-left">'Invalid argument 14'</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>QMCKL_INVALID_ARG_15</code></td>
+<td class="org-right">15</td>
+<td class="org-left">'Invalid argument 15'</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>QMCKL_INVALID_ARG_16</code></td>
+<td class="org-right">16</td>
+<td class="org-left">'Invalid argument 16'</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>QMCKL_INVALID_ARG_17</code></td>
+<td class="org-right">17</td>
+<td class="org-left">'Invalid argument 17'</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>QMCKL_INVALID_ARG_18</code></td>
+<td class="org-right">18</td>
+<td class="org-left">'Invalid argument 18'</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>QMCKL_INVALID_ARG_19</code></td>
+<td class="org-right">19</td>
+<td class="org-left">'Invalid argument 19'</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>QMCKL_INVALID_ARG_20</code></td>
+<td class="org-right">20</td>
+<td class="org-left">'Invalid argument 20'</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>QMCKL_FAILURE</code></td>
+<td class="org-right">101</td>
+<td class="org-left">'Failure'</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>QMCKL_ERRNO</code></td>
+<td class="org-right">102</td>
+<td class="org-left">strerror(errno)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>QMCKL_INVALID_CONTEXT</code></td>
+<td class="org-right">103</td>
+<td class="org-left">'Invalid context'</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>QMCKL_ALLOCATION_FAILED</code></td>
+<td class="org-right">104</td>
+<td class="org-left">'Allocation failed'</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>QMCKL_DEALLOCATION_FAILED</code></td>
+<td class="org-right">105</td>
+<td class="org-left">'De-allocation failed'</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>QMCKL_NOT_PROVIDED</code></td>
+<td class="org-right">106</td>
+<td class="org-left">'Not provided'</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>QMCKL_OUT_OF_BOUNDS</code></td>
+<td class="org-right">107</td>
+<td class="org-left">'Index out of bounds'</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>QMCKL_ALREADY_SET</code></td>
+<td class="org-right">108</td>
+<td class="org-left">'Already set'</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>QMCKL_INVALID_EXIT_CODE</code></td>
+<td class="org-right">109</td>
+<td class="org-left">'Invalid exit code'</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+The <code>qmckl_string_of_error</code> converts an exit code into a string. The
+string is assumed to be large enough to contain the error message
+(typically 128 characters).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org66a9d8d" class="outline-2">
+<h2 id="org66a9d8d"><span class="section-number-2">1.</span> Decoding errors</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 To decode the error messages, <code>qmckl_string_of_error</code> converts an
 error code into a string.
 </p>
 
-<pre class="example">
-128
-
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #a020f0;">const</span> <span style="color: #228b22;">char</span>*
+<span style="color: #0000ff;">qmckl_string_of_error</span> (<span style="color: #a020f0;">const</span> <span style="color: #228b22;">qmckl_exit_code</span> <span style="color: #a0522d;">error</span>);
 </pre>
+</div>
 
 <p>
 The text strings are extracted from the previous table.
 </p>
-
-<div class="org-src-container">
-<pre class="src src-c"><span style="color: #a020f0;">const</span> <span style="color: #228b22;">char</span>* <span style="color: #0000ff;">qmckl_string_of_error</span>(<span style="color: #a020f0;">const</span> <span style="color: #228b22;">qmckl_exit_code</span> <span style="color: #a0522d;">error</span>) {
-  <span style="color: #a020f0;">switch</span> (error) {
-  <span style="color: #a020f0;">case</span> QMCKL_SUCCESS:
-              <span style="color: #a020f0;">return</span> <span style="color: #8b2252;">"Success"</span>;
-            <span style="color: #a020f0;">break</span>;
-  <span style="color: #a020f0;">case</span> QMCKL_INVALID_ARG_1:
-              <span style="color: #a020f0;">return</span> <span style="color: #8b2252;">"Invalid argument 1"</span>;
-            <span style="color: #a020f0;">break</span>;
-  <span style="color: #a020f0;">case</span> QMCKL_INVALID_ARG_2:
-              <span style="color: #a020f0;">return</span> <span style="color: #8b2252;">"Invalid argument 2"</span>;
-            <span style="color: #a020f0;">break</span>;
-  <span style="color: #a020f0;">case</span> QMCKL_INVALID_ARG_3:
-              <span style="color: #a020f0;">return</span> <span style="color: #8b2252;">"Invalid argument 3"</span>;
-            <span style="color: #a020f0;">break</span>;
-  <span style="color: #a020f0;">case</span> QMCKL_INVALID_ARG_4:
-              <span style="color: #a020f0;">return</span> <span style="color: #8b2252;">"Invalid argument 4"</span>;
-            <span style="color: #a020f0;">break</span>;
-  <span style="color: #a020f0;">case</span> QMCKL_INVALID_ARG_5:
-              <span style="color: #a020f0;">return</span> <span style="color: #8b2252;">"Invalid argument 5"</span>;
-            <span style="color: #a020f0;">break</span>;
-  <span style="color: #a020f0;">case</span> QMCKL_INVALID_ARG_6:
-              <span style="color: #a020f0;">return</span> <span style="color: #8b2252;">"Invalid argument 6"</span>;
-            <span style="color: #a020f0;">break</span>;
-  <span style="color: #a020f0;">case</span> QMCKL_INVALID_ARG_7:
-              <span style="color: #a020f0;">return</span> <span style="color: #8b2252;">"Invalid argument 7"</span>;
-            <span style="color: #a020f0;">break</span>;
-  <span style="color: #a020f0;">case</span> QMCKL_INVALID_ARG_8:
-              <span style="color: #a020f0;">return</span> <span style="color: #8b2252;">"Invalid argument 8"</span>;
-            <span style="color: #a020f0;">break</span>;
-  <span style="color: #a020f0;">case</span> QMCKL_INVALID_ARG_9:
-              <span style="color: #a020f0;">return</span> <span style="color: #8b2252;">"Invalid argument 9"</span>;
-            <span style="color: #a020f0;">break</span>;
-  <span style="color: #a020f0;">case</span> QMCKL_INVALID_ARG_10:
-              <span style="color: #a020f0;">return</span> <span style="color: #8b2252;">"Invalid argument 10"</span>;
-            <span style="color: #a020f0;">break</span>;
-  <span style="color: #a020f0;">case</span> QMCKL_INVALID_ARG_11:
-              <span style="color: #a020f0;">return</span> <span style="color: #8b2252;">"Invalid argument 11"</span>;
-            <span style="color: #a020f0;">break</span>;
-  <span style="color: #a020f0;">case</span> QMCKL_INVALID_ARG_12:
-              <span style="color: #a020f0;">return</span> <span style="color: #8b2252;">"Invalid argument 12"</span>;
-            <span style="color: #a020f0;">break</span>;
-  <span style="color: #a020f0;">case</span> QMCKL_INVALID_ARG_13:
-              <span style="color: #a020f0;">return</span> <span style="color: #8b2252;">"Invalid argument 13"</span>;
-            <span style="color: #a020f0;">break</span>;
-  <span style="color: #a020f0;">case</span> QMCKL_INVALID_ARG_14:
-              <span style="color: #a020f0;">return</span> <span style="color: #8b2252;">"Invalid argument 14"</span>;
-            <span style="color: #a020f0;">break</span>;
-  <span style="color: #a020f0;">case</span> QMCKL_INVALID_ARG_15:
-              <span style="color: #a020f0;">return</span> <span style="color: #8b2252;">"Invalid argument 15"</span>;
-            <span style="color: #a020f0;">break</span>;
-  <span style="color: #a020f0;">case</span> QMCKL_INVALID_ARG_16:
-              <span style="color: #a020f0;">return</span> <span style="color: #8b2252;">"Invalid argument 16"</span>;
-            <span style="color: #a020f0;">break</span>;
-  <span style="color: #a020f0;">case</span> QMCKL_INVALID_ARG_17:
-              <span style="color: #a020f0;">return</span> <span style="color: #8b2252;">"Invalid argument 17"</span>;
-            <span style="color: #a020f0;">break</span>;
-  <span style="color: #a020f0;">case</span> QMCKL_INVALID_ARG_18:
-              <span style="color: #a020f0;">return</span> <span style="color: #8b2252;">"Invalid argument 18"</span>;
-            <span style="color: #a020f0;">break</span>;
-  <span style="color: #a020f0;">case</span> QMCKL_INVALID_ARG_19:
-              <span style="color: #a020f0;">return</span> <span style="color: #8b2252;">"Invalid argument 19"</span>;
-            <span style="color: #a020f0;">break</span>;
-  <span style="color: #a020f0;">case</span> QMCKL_INVALID_ARG_20:
-              <span style="color: #a020f0;">return</span> <span style="color: #8b2252;">"Invalid argument 20"</span>;
-            <span style="color: #a020f0;">break</span>;
-  <span style="color: #a020f0;">case</span> QMCKL_FAILURE:
-              <span style="color: #a020f0;">return</span> <span style="color: #8b2252;">"Failure"</span>;
-            <span style="color: #a020f0;">break</span>;
-  <span style="color: #a020f0;">case</span> QMCKL_ERRNO:
-              <span style="color: #a020f0;">return</span> strerror(errno);
-            <span style="color: #a020f0;">break</span>;
-  <span style="color: #a020f0;">case</span> QMCKL_INVALID_CONTEXT:
-              <span style="color: #a020f0;">return</span> <span style="color: #8b2252;">"Invalid context"</span>;
-            <span style="color: #a020f0;">break</span>;
-  <span style="color: #a020f0;">case</span> QMCKL_ALLOCATION_FAILED:
-              <span style="color: #a020f0;">return</span> <span style="color: #8b2252;">"Allocation failed"</span>;
-            <span style="color: #a020f0;">break</span>;
-  <span style="color: #a020f0;">case</span> QMCKL_DEALLOCATION_FAILED:
-              <span style="color: #a020f0;">return</span> <span style="color: #8b2252;">"De-allocation failed"</span>;
-            <span style="color: #a020f0;">break</span>;
-  <span style="color: #a020f0;">case</span> QMCKL_NOT_PROVIDED:
-              <span style="color: #a020f0;">return</span> <span style="color: #8b2252;">"Not provided"</span>;
-            <span style="color: #a020f0;">break</span>;
-  <span style="color: #a020f0;">case</span> QMCKL_OUT_OF_BOUNDS:
-              <span style="color: #a020f0;">return</span> <span style="color: #8b2252;">"Index out of bounds"</span>;
-            <span style="color: #a020f0;">break</span>;
-  <span style="color: #a020f0;">case</span> QMCKL_INVALID_EXIT_CODE:
-              <span style="color: #a020f0;">return</span> <span style="color: #8b2252;">"Invalid exit code"</span>;
-            <span style="color: #a020f0;">break</span>;
-  }
-  <span style="color: #a020f0;">return</span> <span style="color: #8b2252;">"Unknown error"</span>;
-}
-
-<span style="color: #228b22;">void</span> <span style="color: #0000ff;">qmckl_string_of_error_f</span>(<span style="color: #a020f0;">const</span> <span style="color: #228b22;">qmckl_exit_code</span> <span style="color: #a0522d;">error</span>, <span style="color: #228b22;">char</span> <span style="color: #a0522d;">result</span>[128]) {
-  strncpy(result, qmckl_string_of_error(error), 128-1);
-}
-</pre>
-</div>
-
-<div class="org-src-container">
-<pre class="src src-f90"><span style="color: #a020f0;">interface</span>
-   <span style="color: #a020f0;">subroutine</span> <span style="color: #0000ff;">qmckl_string_of_error</span> (error, string) <span style="color: #a020f0;">bind</span>(C, name=<span style="color: #8b2252;">'qmckl_string_of_error_f'</span>)
-     <span style="color: #a020f0;">use</span>, <span style="color: #a020f0;">intrinsic</span> :: <span style="color: #0000ff;">iso_c_binding</span>
-     <span style="color: #a020f0;">import</span>
-     <span style="color: #228b22;">integer</span> (qmckl_exit_code), <span style="color: #a020f0;">intent</span>(in), <span style="color: #a020f0;">value</span> ::<span style="color: #a0522d;"> error</span>
-     <span style="color: #228b22;">character</span>, <span style="color: #a020f0;">intent</span>(out) ::<span style="color: #a0522d;"> string(128)</span>
-   <span style="color: #a020f0;">end subroutine</span> <span style="color: #0000ff;">qmckl_string_of_error</span>
-<span style="color: #a020f0;">end interface</span>
-</pre>
 </div>
 </div>
-</div>
-
-<div id="outline-container-orge863fc2" class="outline-2">
-<h2 id="orge863fc2"><span class="section-number-2">2</span> Data structure in context</h2>
+<div id="outline-container-orgf42e997" class="outline-2">
+<h2 id="orgf42e997"><span class="section-number-2">2.</span> Data structure in context</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-The strings are declared with a maximum fixed size to avoid
+The strings are declared internally with a maximum fixed size to avoid
 dynamic memory allocation.
 </p>
 
@@ -475,8 +527,8 @@ dynamic memory allocation.
 </div>
 </div>
 
-<div id="outline-container-org6eb2637" class="outline-2">
-<h2 id="org6eb2637"><span class="section-number-2">3</span> Updating errors in the context</h2>
+<div id="outline-container-org4043b29" class="outline-2">
+<h2 id="org4043b29"><span class="section-number-2">3.</span> Updating errors in the context</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The error is updated in the context using <code>qmckl_set_error</code>.
@@ -490,45 +542,18 @@ explaining the error. The exit code can't be <code>QMCKL_SUCCESS</code>.
 <span style="color: #0000ff;">qmckl_set_error</span>(<span style="color: #228b22;">qmckl_context</span> <span style="color: #a0522d;">context</span>,
                 <span style="color: #a020f0;">const</span> <span style="color: #228b22;">qmckl_exit_code</span> <span style="color: #a0522d;">exit_code</span>,
                 <span style="color: #a020f0;">const</span> <span style="color: #228b22;">char</span>* <span style="color: #a0522d;">function_name</span>,
-                <span style="color: #a020f0;">const</span> <span style="color: #228b22;">char</span>* <span style="color: #a0522d;">message</span>)
-{
-  /* <span style="color: #b22222;">Passing a function name and a message is mandatory. </span>*/
-  assert (function_name != <span style="color: #008b8b;">NULL</span>);
-  assert (message != <span style="color: #008b8b;">NULL</span>);
-
-  /* <span style="color: #b22222;">Exit codes are assumed valid. </span>*/
-  assert (exit_code &gt;= 0);
-  assert (exit_code != QMCKL_SUCCESS);
-  assert (exit_code &lt; QMCKL_INVALID_EXIT_CODE);
-
-  /* <span style="color: #b22222;">The context is assumed to exist. </span>*/
-  assert (qmckl_context_check(context) != QMCKL_NULL_CONTEXT);
-
-  qmckl_lock(context);
-  {
-    <span style="color: #228b22;">qmckl_context_struct</span>* <span style="color: #a020f0;">const</span> <span style="color: #a0522d;">ctx</span> = (<span style="color: #228b22;">qmckl_context_struct</span>* <span style="color: #a020f0;">const</span>) context;
-    assert (ctx != <span style="color: #008b8b;">NULL</span>); /* <span style="color: #b22222;">Impossible because the context is valid. </span>*/
-
-    ctx-&gt;error.exit_code = exit_code;
-    strncpy(ctx-&gt;error.function, function_name, QMCKL_MAX_FUN_LEN-1);
-    strncpy(ctx-&gt;error.message, message, QMCKL_MAX_MSG_LEN-1);
-  }
-  qmckl_unlock(context);
-
-  <span style="color: #a020f0;">return</span> QMCKL_SUCCESS;
-}
+                <span style="color: #a020f0;">const</span> <span style="color: #228b22;">char</span>* <span style="color: #a0522d;">message</span>);
 </pre>
 </div>
 </div>
 </div>
-
-<div id="outline-container-org9baaf45" class="outline-2">
-<h2 id="org9baaf45"><span class="section-number-2">4</span> Get the error</h2>
+<div id="outline-container-org993bbd2" class="outline-2">
+<h2 id="org993bbd2"><span class="section-number-2">4.</span> Get the error</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Upon error, the error type and message can be obtained from the
 context using <code>qmckl_get_error</code>. The message and function name
-is returned in the variables provided. Therefore, passing a 
+is returned in the variables provided. Therefore, passing a
 function name and message is mandatory.
 </p>
 
@@ -537,46 +562,13 @@ function name and message is mandatory.
 <span style="color: #0000ff;">qmckl_get_error</span>(<span style="color: #228b22;">qmckl_context</span> <span style="color: #a0522d;">context</span>,
                 <span style="color: #228b22;">qmckl_exit_code</span> *<span style="color: #a0522d;">exit_code</span>,
                 <span style="color: #228b22;">char</span>* <span style="color: #a0522d;">function_name</span>,
-                <span style="color: #228b22;">char</span>* <span style="color: #a0522d;">message</span>)
-{
-  /* <span style="color: #b22222;">Passing a function name and a message is mandatory. </span>*/
-  assert (function_name != <span style="color: #008b8b;">NULL</span>);
-  assert (message != <span style="color: #008b8b;">NULL</span>);
-
-  /* <span style="color: #b22222;">The context is assumed to exist. </span>*/
-  assert (qmckl_context_check(context) != QMCKL_NULL_CONTEXT);
-
-  qmckl_lock(context);
-  {
-    <span style="color: #228b22;">qmckl_context_struct</span>* <span style="color: #a020f0;">const</span> <span style="color: #a0522d;">ctx</span> = (<span style="color: #228b22;">qmckl_context_struct</span>* <span style="color: #a020f0;">const</span>) context;
-    assert (ctx != <span style="color: #008b8b;">NULL</span>); /* <span style="color: #b22222;">Impossible because the context is valid. </span>*/
-
-/* <span style="color: #b22222;">Turn off annoying GCC warning </span>*/
-<span style="color: #483d8b;">#ifdef</span> __GNUC__
-<span style="color: #483d8b;">#pragma</span> GCC diagnostic push
-<span style="color: #483d8b;">#pragma</span> GCC diagnostic ignored <span style="color: #8b2252;">"-Wstringop-truncation"</span>
-<span style="color: #483d8b;">#endif</span>
-
-    strncpy(function_name, ctx-&gt;error.function, QMCKL_MAX_FUN_LEN-1);
-    strncpy(message      , ctx-&gt;error.message , QMCKL_MAX_MSG_LEN-1);
-
-<span style="color: #483d8b;">#ifdef</span> __GNUC__
-<span style="color: #483d8b;">#pragma</span> GCC diagnostic pop
-<span style="color: #483d8b;">#endif</span>
-
-    (*exit_code) = ctx-&gt;error.exit_code;
-  }
-  qmckl_unlock(context);
-
-  <span style="color: #a020f0;">return</span> QMCKL_SUCCESS;
-}
+                <span style="color: #228b22;">char</span>* <span style="color: #a0522d;">message</span>);
 </pre>
 </div>
 </div>
 </div>
-
-<div id="outline-container-org6eb023c" class="outline-2">
-<h2 id="org6eb023c"><span class="section-number-2">5</span> Failing</h2>
+<div id="outline-container-org84aa4d7" class="outline-2">
+<h2 id="org84aa4d7"><span class="section-number-2">5.</span> Failing</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 To make a function fail, the <code>qmckl_failwith</code> function should be
@@ -590,35 +582,11 @@ Upon failure, a <code>QMCKL_NULL_CONTEXT</code> is returned.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #228b22;">qmckl_exit_code</span> <span style="color: #0000ff;">qmckl_failwith</span>(<span style="color: #228b22;">qmckl_context</span> <span style="color: #a0522d;">context</span>,
-                               <span style="color: #a020f0;">const</span> <span style="color: #228b22;">qmckl_exit_code</span> <span style="color: #a0522d;">exit_code</span>,
-                               <span style="color: #a020f0;">const</span> <span style="color: #228b22;">char</span>* <span style="color: #a0522d;">function</span>,
-                               <span style="color: #a020f0;">const</span> <span style="color: #228b22;">char</span>* <span style="color: #a0522d;">message</span>) {
-
-  assert (exit_code &gt; 0);
-  assert (exit_code &lt; QMCKL_INVALID_EXIT_CODE);
-  assert (function != <span style="color: #008b8b;">NULL</span>);
-  assert (strlen(function) &lt; QMCKL_MAX_FUN_LEN);
-  <span style="color: #a020f0;">if</span> (message != <span style="color: #008b8b;">NULL</span>) {
-    assert (strlen(message)  &lt; QMCKL_MAX_MSG_LEN);
-  }
-
-  <span style="color: #a020f0;">if</span> (qmckl_context_check(context) == QMCKL_NULL_CONTEXT)
-    <span style="color: #a020f0;">return</span> QMCKL_INVALID_CONTEXT;
-
-  <span style="color: #a020f0;">if</span> (message == <span style="color: #008b8b;">NULL</span>) {
-    <span style="color: #228b22;">qmckl_exit_code</span> <span style="color: #a0522d;">rc</span> =
-      qmckl_set_error(context, exit_code, function, qmckl_string_of_error(exit_code));
-    assert (rc == QMCKL_SUCCESS);
-  } <span style="color: #a020f0;">else</span> {
-    <span style="color: #228b22;">qmckl_exit_code</span> <span style="color: #a0522d;">rc</span> =
-      qmckl_set_error(context, exit_code, function, message);
-    assert (rc == QMCKL_SUCCESS);
-  }
-
-  <span style="color: #a020f0;">return</span> exit_code;
-}
-
+<pre class="src src-c"><span style="color: #228b22;">qmckl_exit_code</span>
+<span style="color: #0000ff;">qmckl_failwith</span>(<span style="color: #228b22;">qmckl_context</span> <span style="color: #a0522d;">context</span>,
+               <span style="color: #a020f0;">const</span> <span style="color: #228b22;">qmckl_exit_code</span> <span style="color: #a0522d;">exit_code</span>,
+               <span style="color: #a020f0;">const</span> <span style="color: #228b22;">char</span>* <span style="color: #a0522d;">function</span>,
+               <span style="color: #a020f0;">const</span> <span style="color: #228b22;">char</span>* <span style="color: #a0522d;">message</span>) ;
 </pre>
 </div>
 
@@ -636,11 +604,61 @@ For example, this function can be used as
 </div>
 </div>
 </div>
+
+<div id="outline-container-org610e476" class="outline-2">
+<h2 id="org610e476"><span class="section-number-2">6.</span> Last error</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+Returns a string describing the last error, using <code>qmckl_get_error</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #228b22;">qmckl_exit_code</span>
+<span style="color: #0000ff;">qmckl_last_error</span>(<span style="color: #228b22;">qmckl_context</span> <span style="color: #a0522d;">context</span>, <span style="color: #228b22;">char</span>* <span style="color: #a0522d;">buffer</span>);
+</pre>
+</div>
+</div>
+<div id="outline-container-org01fc105" class="outline-3">
+<h3 id="org01fc105"><span class="section-number-3">6.1.</span> Fortran inteface</h3>
+</div>
+</div>
+
+<div id="outline-container-orgf6908e2" class="outline-2">
+<h2 id="orgf6908e2"><span class="section-number-2">7.</span> Helper functions for debugging</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+The following function prints to <code>stderr</code> an error message is the return code is
+not <code>QMCKL_SUCCESS</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #228b22;">qmckl_exit_code</span>
+<span style="color: #0000ff;">qmckl_check</span>(<span style="color: #228b22;">qmckl_context</span> <span style="color: #a0522d;">context</span>, <span style="color: #228b22;">qmckl_exit_code</span> <span style="color: #a0522d;">rc</span>);
+</pre>
+</div>
+
+<p>
+It should be used as:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c">rc = qmckl_check(context,
+                 qmckl_...(context, ...)
+                 );
+<span style="color: #0000ff;">assert</span> (rc == QMCKL_SUCCESS);
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgbe6cec3" class="outline-3">
+<h3 id="orgbe6cec3"><span class="section-number-3">7.1.</span> Fortran inteface</h3>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: TREX CoE</p>
-<p class="date">Created: 2021-10-17 Sun 15:02</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2025-11-28 Fri 18:52</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>
